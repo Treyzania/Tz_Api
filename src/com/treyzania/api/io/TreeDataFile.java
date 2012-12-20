@@ -13,56 +13,50 @@ public class TreeDataFile implements Flushable {
 	private File targetFile;
 	private RootDirectory rootDir;
 	
-	public TreeDataFile(String filename) {		
+	public TreeDataFile(String filename, boolean read) {		
 		
 		// Inits
 		targetFile = new File(filename);
 		rootDir = null;
 		
-		this.sync(); // Read the path tree
-		
+		if (read) sync();
+			
 	}
 	
 	/**
-	 * Gets an entry from an address.
+	 * Gets an entry from an address.  Required address as a java.lang.String[]
 	 * I.E. "/data/example/number.int"
 	 * 
 	 * 
 	 */
 	@SuppressWarnings("unused")
-	public Entry getEntryFromPath(String path) {
+	public Entry getEntryFromPath(String[] path) {
 		
-		Vector<Entry> entryPathAsVec = new Vector<Entry>();
+		// Inits
 		Entry e = null;
 		boolean finished = false;
-		String adjPath = path;
+		int point = 0;
 		
-		while (!finished) {
+		// Work
+		e = rootDir.getEntry(path[0]); point++;
+		for (int i = 0; i < path.length; i++) {
 			
-			String currentTarget = "";
+			if (point >= path.length) break;
+			if ( !(e instanceof EntryCompound) ) break;
+			EntryCompound ec = (EntryCompound) e;
 			
-			
-			
-			
+			e = ec.getEntry(path[i]);
 			
 		}
 		
-		
+		// Return
 		return e;
 		
 	}
 	
-	public Entry getEntry(String name, EntryCompound ec) { 
+	public boolean addEntry(Entry entry) {
 		
-		Entry e = null;
-		
-		for (int i = 0; i < ec.entries.length; i++) {
-			
-			if (ec.getEntry(i).name == name) e = ec.getEntry(i);
-			
-		}
-		
-		return e;
+		return rootDir.addEntry(entry);
 		
 	}
 	
