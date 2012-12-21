@@ -1,28 +1,33 @@
 package com.treyzania.dev;
 
+import java.awt.Rectangle;
+
+import javax.swing.JFrame;
+
 import com.treyzania.api.io.EntryCompound;
 import com.treyzania.api.io.EntryString;
 import com.treyzania.api.io.TreeDataFile;
+import com.treyzania.api.util.Tz_Api;
 
 public class Dev {
 
 	public static void main(String[] args) {
 		
-		TreeDataFile tdf = new TreeDataFile("C:\\Java_Play\\test", false);
-		EntryCompound ec = new EntryCompound("test");
-		ec.addEntry(new EntryString("string", "TEST"));
+		Tz_Api.initalize();
 		
-		tdf.addEntry(ec);
-		tdf.flush();
+		TweakPanel tp = new TweakPanel();
+		JFrame frame = new JFrame();
 		
-		String[] stringArray = {"test"};
-		EntryCompound ec2 = (EntryCompound) tdf.getEntryFromPath(stringArray);
-		String[] names = ec2.getEntryList_Strings();
+		frame.setBounds(new Rectangle(0, 0, 500, 500));
+		frame.setFocusable(true);
+		frame.setVisible(true);
+		frame.add(tp);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		for (int i = 0; i < names.length; i++) {
+		
+		while (true) {
 			
-			System.out.println(names[i]);
-			
+			tp.repaint();
 			
 		}
 		

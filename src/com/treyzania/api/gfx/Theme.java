@@ -10,19 +10,19 @@ public class Theme {
 	// TODO Add more themes.
 	
 	// Fields
-	Color main;
-	Color backfround;
-	Color second;
-	Color third;
-	Color accent;
+	public Color main;
+	public Color backfround;
+	public Color second;
+	public Color third;
+	public Color text;
 	
-	public Theme(Color main, Color background, Color second, Color third, Color accent) {
+	public Theme(Color main, Color background, Color second, Color third, Color text) {
 		
 		this.main = main;
 		this.backfround = background;
 		this.second = second;
 		this.third = third;
-		this.accent = accent;
+		this.text = text;
 		
 	}
 	
