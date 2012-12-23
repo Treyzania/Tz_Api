@@ -12,17 +12,28 @@ public class ElementBarThin extends Element {
 	public int max = 0;
 	public int current = 0;
 	public float scalingRatio = 1.0F;
-	public boolean write;
-	public String name;
 	
-	public ElementBarThin(Color bar, Color slider, float ratio, boolean write, String text) {
+	public Color titleColor;
+	public boolean write = false;
+	public String name = "";
+	public boolean numbers = false;
+	public boolean drawPercentage = false;
+	
+	public ElementBarThin(Color bar, Color slider) {
 		
 		this.bar = bar;
 		this.slider = slider;
 		
+	}
+	
+	public void setAttribs(float ratio, boolean write, String text, Color titleColor, boolean numbers, boolean percentage) {
+		
 		this.scalingRatio = ratio;
 		this.write = write;
 		this.name = text;
+		this.titleColor = titleColor;
+		this.numbers = numbers;
+		this.drawPercentage = percentage;
 		
 	}
 	
@@ -58,6 +69,12 @@ public class ElementBarThin extends Element {
 		int pointAdj = (int) (current * scalingRatio);
 		int maxAdj = (int) (max * scalingRatio);
 		int percentage = (int) (( ( (float) current) / ( (float) max) ) * 100);
+		String title = "";
+		if (write) title = title + name;
+		if (numbers && write) title = title + ": ";
+		if (numbers) title = title + current + " / " + max;
+		if ( (write && drawPercentage) || (numbers && drawPercentage) ) title = title + " ";
+		if (drawPercentage) title = title + "( " + percentage + "% )";
 		
 		int barStart_X = x;
 		int barStart_Y = y + 5;
@@ -74,10 +91,9 @@ public class ElementBarThin extends Element {
 		g2d.drawLine(barStart_X, barStart_Y, barEnd_X, barEnd_Y); // Bar
 		g2d.setColor(this.slider);
 		g2d.drawLine(sliderStart_X, sliderStart_Y, sliderEnd_X, sliderEnd_Y); // Slider
-		if (write) {
-			g2d.setColor(ResourceRegistry.currentTheme.text);
-			g2d.drawString(name + ": " + current + " / " + max + " ( " + percentage + "% )", x, y - 5);
-		}
+		
+		g2d.setColor(this.titleColor);
+		g2d.drawString(title, x, y - 5); // Text
 		
 		// Reset
 		ResourceRegistry.currentTheme.adaptGraphics2D(g2d);

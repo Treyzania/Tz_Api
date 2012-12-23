@@ -4,9 +4,6 @@ import java.awt.Rectangle;
 
 import javax.swing.JFrame;
 
-import com.treyzania.api.io.EntryCompound;
-import com.treyzania.api.io.EntryString;
-import com.treyzania.api.io.TreeDataFile;
 import com.treyzania.api.util.Tz_Api;
 
 public class Dev {
@@ -26,6 +23,8 @@ public class Dev {
 		
 		
 		while (true) {
+			
+			try { Thread.sleep(100); } catch (Exception e) {}
 			
 			tp.repaint();
 			
