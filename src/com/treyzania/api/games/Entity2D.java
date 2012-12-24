@@ -10,7 +10,7 @@ public class Entity2D extends Entity {
 	
 	public Entity2D(Model model) {
 		
-		this.model= model; 
+		this.model = model; 
 		
 		
 	}

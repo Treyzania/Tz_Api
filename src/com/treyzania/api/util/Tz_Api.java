@@ -7,7 +7,7 @@ public class Tz_Api {
 	public static void initalize() {
 		
 		ResourceRegistry.setCurrentTheme(Theme.THEME_DEFAULT);
-		// TODO Add more classes to initalize.
+		// TODO Add more classes to initialize.
 		
 	}
 	
