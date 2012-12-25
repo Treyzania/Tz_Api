@@ -1,9 +1,9 @@
-package com.treyzania.api.util;
+package com.treyzania.api.gui;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import com.treyzania.api.gfx.Element;
+import com.treyzania.api.util.ResourceRegistry;
 
 public class ElementBarThin extends Element {
 
@@ -19,7 +19,9 @@ public class ElementBarThin extends Element {
 	public boolean numbers = false;
 	public boolean drawPercentage = false;
 	
-	public ElementBarThin(Color bar, Color slider) {
+	public ElementBarThin(int x, int y, Color bar, Color slider) {
+		
+		super(x, y);
 		
 		this.bar = bar;
 		this.slider = slider;
@@ -63,7 +65,7 @@ public class ElementBarThin extends Element {
 	}*/
 	
 	@Override
-	public void render(Graphics2D g2d, int x, int y) {
+	public void render(Graphics2D g2d) {
 		
 		// Inits
 		int pointAdj = (int) (current * scalingRatio);

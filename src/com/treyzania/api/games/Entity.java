@@ -1,13 +1,10 @@
 package com.treyzania.api.games;
 
 public abstract class Entity {
-
-	public int health, maxHealth;
+	
 	public String name = "";
 	
-	
 	// Constructors
-	
 	public Entity() {}
 	
 	public Entity(String name) {
@@ -23,7 +20,15 @@ public abstract class Entity {
 		
 	}
 	
+	/**
+	 * For any AI calls.
+	 */
 	public void ai() { }
+	
+	/**
+	 * For updating the physics.
+	 * EX: [environment_object].updateEntity2D(this);
+	 */
 	public abstract void updatePos();
 	
 }

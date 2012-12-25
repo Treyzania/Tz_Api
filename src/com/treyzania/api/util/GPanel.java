@@ -20,7 +20,7 @@ public class GPanel extends JPanel implements ITick {
 		this.mobs = new ArrayList<Entity2D>();
 		
 		EventRegistry.panels.add(this);
-		ResourceRegistry.tickReg().addTick(new Tick(this.toString(), this, 50));
+		TickRegistry.registerTick(this, this.toString(), 50);
 		
 	}
 
@@ -40,7 +40,6 @@ public class GPanel extends JPanel implements ITick {
 		if (l instanceof KeyListener) this.addKeyListener((KeyListener) l);
 		if (l instanceof MouseListener) this.addMouseListener((MouseListener) l);
 		if (l instanceof MouseMotionListener) this.addMouseMotionListener((MouseMotionListener) l);
-		
 		
 	}
 	

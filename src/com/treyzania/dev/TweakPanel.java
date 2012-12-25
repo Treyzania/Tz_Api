@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
-import com.treyzania.api.util.ElementBarThin;
+import com.treyzania.api.gui.ElementBarThin;
 
 public class TweakPanel extends JPanel {
 
@@ -21,13 +21,13 @@ public class TweakPanel extends JPanel {
 		
 		g2d.drawLine(0, 0, 10, 10);
 		
-		ElementBarThin ebt = new ElementBarThin(Color.BLACK, Color.GREEN);
+		ElementBarThin ebt = new ElementBarThin(50, 50, Color.BLACK, Color.GREEN);
 		ebt.setMaximum(100);
 		ebt.setValue(100);
 		
 		ebt.setAttribs(1.0F, true, "Hi", Color.BLACK, true, true);
 		
-		ebt.render(g2d, 50, 50);
+		ebt.render(g2d);
 		
 	}
 	
