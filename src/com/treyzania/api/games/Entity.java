@@ -16,7 +16,6 @@ public abstract class Entity {
 	public void update() {
 		
 		this.ai();
-		this.updatePos();
 		
 	}
 	
@@ -24,11 +23,5 @@ public abstract class Entity {
 	 * For any AI calls.
 	 */
 	public void ai() { }
-	
-	/**
-	 * For updating the physics.
-	 * EX: [environment_object].updateEntity2D(this);
-	 */
-	public abstract void updatePos();
 	
 }

@@ -58,6 +58,12 @@ public class TickRegistry implements Runnable {
 		
 	}
 	
+	protected static TickRegistry getTicker() {
+		
+		return ticker;
+		
+	}
+	
 	private void addTick(Tick tick) {
 		
 		synchronized (ticks) {
@@ -70,7 +76,7 @@ public class TickRegistry implements Runnable {
 	
 	private void setEnabled(String name, boolean enabled) {
 		
-		for ( Tick tick : (Tick[]) ticks.toArray() ) {
+		for ( Tick tick : ticks ) {
 			
 			tick.setEnabled(enabled);
 			
@@ -87,7 +93,7 @@ public class TickRegistry implements Runnable {
 			
 			if (ticking) {
 				
-				for ( Tick tick : (Tick[]) ticks.toArray() ) {
+				for ( Tick tick : ticks ) {
 					
 					synchronized (tick) {
 						

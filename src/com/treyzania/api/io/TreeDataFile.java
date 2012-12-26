@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
 public class TreeDataFile implements Flushable {
 	
 	private File targetFile;
-	private RootDirectory rootDir;
+	public RootDirectory rootDir;
 	
 	public TreeDataFile(String filename, boolean read) {		
 		
@@ -18,15 +18,26 @@ public class TreeDataFile implements Flushable {
 		targetFile = new File(filename);
 		rootDir = null;
 		
-		if (read) sync();
+		if (read) {
+			sync();
+		} else {
+			resetRootDir();
+		}
 			
 	}
 	
+	public void resetRootDir() {
+		
+		this.rootDir = new RootDirectory();
+		
+	}
+	
 	/**
-	 * Gets an entry from an address.  Required address as a java.lang.String[]
-	 * I.E. "/data/example/number.int"
+	 * Gets the specified entry.
+	 * NOTE: "path" must be a java.lang.String[]
 	 * 
-	 * 
+	 * @param path
+	 * @return
 	 */
 	@SuppressWarnings("unused")
 	public Entry getEntryFromPath(String[] path) {

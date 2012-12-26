@@ -1,24 +1,65 @@
 package com.treyzania.api.games;
 
 public class Environment {
-
-	public float vertical_windResistance;
-	public float horizontal_windResistance;
+	
+	public float vert_windResistance;
+	public float hor_windResistance;
 	
 	public float gravityFactor;
 	
 	public Environment() {
 		
-		this.vertical_windResistance = 0F;
-		this.horizontal_windResistance = 0F;
+		this.vert_windResistance = 0F;
+		this.hor_windResistance = 0F;
 		
 		this.gravityFactor = 0.0F;
 		
 	}
 	
-	public void updateVelocity(Entity2D e2d) {
+	/**
+	 * Updates the entity's location. (Via IEntPhysicsAccess2D.)
+	 * 
+	 * @param entity
+	 */
+	public void updateVelocity(IPhysicsAccess2D entity) {
 		
-		// TODO Add velocity stuffs.
+		double x = entity.getX();
+		double y = entity.getY();
+		
+		double xVel = entity.getXVel();
+		double yVel = entity.getYVel();
+		
+		double nextX = x;
+		double nextY = y;
+		
+		xVel = xVel * hor_windResistance;
+		yVel = (yVel * vert_windResistance) + gravityFactor;
+		
+		if (entity.getInWater()) {
+			yVel *= 0.25;
+		}
+		
+		double absVel = entity.getXVel() + entity.getYVel();
+		
+		if (absVel < entity.getTerminalVelocity()) {
+			xVel *= 0.99;
+			yVel *= 0.99;
+			
+		}
+		
+		if (entity.getOnGround()) {
+			xVel *= 0.5;
+			yVel = 0;
+		}
+		
+		nextX += xVel;
+		nextY += yVel;
+		
+		entity.setX(nextX);
+		entity.setY(nextY);
+		
+		entity.setXVel(xVel);
+		entity.setYVel(yVel);
 		
 	}
 	

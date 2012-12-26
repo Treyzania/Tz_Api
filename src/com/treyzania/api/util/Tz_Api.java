@@ -1,6 +1,6 @@
 package com.treyzania.api.util;
 
-import com.treyzania.api.gfx.Theme;
+import com.treyzania.api.gui.Theme;
 
 public class Tz_Api {
 

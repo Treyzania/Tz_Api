@@ -1,6 +1,7 @@
 package com.treyzania.api.games;
 
-import com.treyzania.api.games.simple2d.Model;
+import com.treyzania.api.games.gfx2d.Model;
+import com.treyzania.api.util.ResourceRegistry;
 
 public class Entity2D extends Entity {
 	
@@ -20,14 +21,13 @@ public class Entity2D extends Entity {
 		
 		super.update();
 		
-		this.updatePos();
-		
-	}
-	
-	
-	public void updatePos() {
-		
-		// TODO Add physics
+		if (this instanceof ICustomPhysics) {
+			((ICustomPhysics) this).updatePhysics();
+		} else if (this instanceof IPhysicsAccess2D) {
+			ResourceRegistry.getCurrentEnvironment().updateVelocity((IPhysicsAccess2D) this);
+		} else {
+			// Nothing
+		}
 		
 	}
 	

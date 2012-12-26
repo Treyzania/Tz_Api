@@ -23,7 +23,7 @@ public class ElementChat extends Element {
 	public void render(Graphics2D g2d) {
 		
 		String lines = "";
-		for ( String line : (String[]) text.toArray() ) { lines = lines + "\n" + line; }
+		for ( String line : text ) { lines = lines + "\n" + line; }
 		
 		// TODO Add good handling
 		

@@ -98,7 +98,7 @@ public class ElementBarThin extends Element {
 		g2d.drawString(title, x, y - 5); // Text
 		
 		// Reset
-		ResourceRegistry.currentTheme.adaptGraphics2D(g2d);
+		ResourceRegistry.getCurrentTheme().adaptGraphics2D(g2d);
 		
 	}
 	

@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7502677689202547100L;
+	
 	public ArrayList<Entry> entries;
 	
 	public EntryCompound(String name) {
@@ -18,14 +23,10 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 		
 		boolean bad = false;
 		
-		if (getEntry(entry.name) != null) {
-			
+		if (getEntry(entry.name) != null) { // Check if the filename already exists 
 			bad = true;
-			
 		} else {
-			
 			entries.add(entry);
-			
 		}
 		
 		return bad;
@@ -42,11 +43,15 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 		
 		Entry e = null;
 		
-		for (Entry entry : entries.toArray(new Entry[2 ^ 16])) {
+		for (Entry entry : entries ) {
 			
-			if (entry.name == name && entry != null) {
+			if (entry != null) {
 				
-				e = entry;
+				if (entry.name == name) {
+					
+					e = entry;
+					
+				}
 				
 			}
 			
