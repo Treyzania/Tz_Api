@@ -35,32 +35,49 @@ public class TreeDataFile implements Flushable {
 	/**
 	 * Gets the specified entry.
 	 * NOTE: "path" must be a java.lang.String[]
+	 * NOTE: Will return a null if the Entry cannot be found.
 	 * 
 	 * @param path
 	 * @return
 	 */
-	@SuppressWarnings("unused")
 	public Entry getEntryFromPath(String[] path) {
 		
-		// Inits
-		Entry e = null;
-		boolean finished = false;
-		int point = 0;
+		/*
+		 * Entry finder revision number: 3.1
+		 */
 		
-		// Work
-		e = rootDir.getEntry(path[0]); point++;
+		Entry targetEntry = null;
+		EntryCompound ec = this.rootDir;
+		
 		for (int i = 0; i < path.length; i++) {
 			
-			if (point >= path.length) break;
-			if ( !(e instanceof EntryCompound) ) break;
-			EntryCompound ec = (EntryCompound) e;
+			String filename_cur = path[i];
 			
-			e = ec.getEntry(path[i]);
+			targetEntry = ec.getEntry(filename_cur);
+			
+			if (targetEntry instanceof EntryCompound) ec = (EntryCompound) targetEntry;
+			//if (targetEntry instanceof DataEntry) throw new IllegalArgumentException();
 			
 		}
 		
-		// Return
-		return e;
+		return targetEntry;
+		
+	}
+	
+	/**
+	 * Gets the specified entry.
+	 * NOTE: Will return a null if the Entry cannot be found.
+	 * 
+	 * @param path
+	 * @return
+	 */
+	public Entry getEntryFromPath(String path) {
+		
+		try {
+			return this.getEntryFromPath(path.split("/"));
+		} catch (ArrayIndexOutOfBoundsException aioobe) {
+			return null;
+		}
 		
 	}
 	

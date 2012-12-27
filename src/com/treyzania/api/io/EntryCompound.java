@@ -47,7 +47,7 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 			
 			if (entry != null) {
 				
-				if (entry.name == name) {
+				if (entry.getFilename() == name) {
 					
 					e = entry;
 					
@@ -67,7 +67,7 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 		
 		for (int i = 0; i < entries.size(); i++) {
 			
-			names.add(entries.get(i).name);
+			names.add(entries.get(i).getFilename());
 			
 		}
 		

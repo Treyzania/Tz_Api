@@ -1,6 +1,6 @@
 package com.treyzania.api.io;
 
-public class EntryByte extends BasicEntry {
+public class EntryByte extends DataEntry {
 
 	/**
 	 * 

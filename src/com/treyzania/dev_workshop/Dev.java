@@ -12,7 +12,14 @@ public class Dev {
 		TreeDataFile tdf = new TreeDataFile("data.tdf", false);
 		
 		tdf.flush();
-		tdf.read();
+		//tdf.read();
+		
+		EntryCompound ec = new EntryCompound("one");
+		ec.addEntry(new EntryInt("numb", 5));
+		
+		tdf.addEntry(ec);
+		
+		System.out.println(tdf.getEntryFromPath(new String[] {"one", "numb.int"}));
 		
 	}
 	
