@@ -1,7 +1,7 @@
 package com.treyzania.dev_workshop;
 
+import com.treyzania.api.Tz_Api;
 import com.treyzania.api.io.*;
-import com.treyzania.api.util.Tz_Api;
 
 public class Dev {
 

@@ -1,6 +1,6 @@
 package com.treyzania.api.games;
 
-import com.treyzania.api.games.gfx2d.Model;
+import com.treyzania.api.games.gfx2d.old.Model;
 
 public class EntityEnv2D extends Entity2D implements IPhysicsAccess2D {
 

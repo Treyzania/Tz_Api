@@ -8,7 +8,7 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.JPanel;
 
-import com.treyzania.api.util.EventRegistry;
+import com.treyzania.api.util.ListenerRegistry;
 import com.treyzania.api.util.ITick;
 import com.treyzania.api.util.TickRegistry;
 
@@ -24,7 +24,7 @@ public class GPanel2D extends JPanel implements ITick {
 		
 		this.mobs = new ArrayList<Entity2D>();
 		
-		EventRegistry.registerGPanel2D(this);
+		ListenerRegistry.registerGPanel2D(this);
 		TickRegistry.registerTick(this, this.toString(), 50);
 		
 	}

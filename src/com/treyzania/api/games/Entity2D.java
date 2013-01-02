@@ -1,6 +1,6 @@
 package com.treyzania.api.games;
 
-import com.treyzania.api.games.gfx2d.Model;
+import com.treyzania.api.games.gfx2d.old.Model;
 import com.treyzania.api.util.ResourceRegistry;
 
 public class Entity2D extends Entity {
