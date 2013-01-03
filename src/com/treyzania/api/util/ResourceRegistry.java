@@ -1,12 +1,12 @@
 package com.treyzania.api.util;
 
-import com.treyzania.api.games.Environment;
+import com.treyzania.api.games.Environment2D;
 import com.treyzania.api.gui.Theme;
 
 public class ResourceRegistry {
 
 	private static Theme currentTheme;
-	private static Environment currentEnv;
+	private static Environment2D currentEnv;
 	
 	/**
 	 * Sets the current Theme.
@@ -35,7 +35,7 @@ public class ResourceRegistry {
 	 * 
 	 * @param env
 	 */
-	public static void setCurrentEnvironment(Environment env) {
+	public static void setCurrentEnvironment(Environment2D env) {
 		
 		currentEnv = env;
 		
@@ -46,7 +46,7 @@ public class ResourceRegistry {
 	 * 
 	 * @return
 	 */
-	public static Environment getCurrentEnvironment() {
+	public static Environment2D getCurrentEnvironment() {
 		
 		return currentEnv;
 		

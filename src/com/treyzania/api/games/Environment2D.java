@@ -1,13 +1,13 @@
 package com.treyzania.api.games;
 
-public class Environment {
+public class Environment2D {
 	
 	public float vert_windResistance;
 	public float hor_windResistance;
 	
 	public float gravityFactor;
 	
-	public Environment() {
+	public Environment2D() {
 		
 		this.vert_windResistance = 0F;
 		this.hor_windResistance = 0F;

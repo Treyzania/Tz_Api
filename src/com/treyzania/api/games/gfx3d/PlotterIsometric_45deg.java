@@ -43,7 +43,7 @@ public class PlotterIsometric_45deg extends Plotter {
 		ry -= ez;
 		*/
 		
-		if (viewpoint == EnumIsometricViewpoint.SOUTHWEST) {
+		if (viewpoint == EnumIsometricViewpoint.SOUTHEAST) {
 			
 			rx += ex * distaceScale;
 			ry += ex * distaceScale;
@@ -53,7 +53,7 @@ public class PlotterIsometric_45deg extends Plotter {
 			
 			ry -= ez;
 			
-		} else if (viewpoint == EnumIsometricViewpoint.SOUTHEAST) {
+		} else if (viewpoint == EnumIsometricViewpoint.SOUTHWEST) {
 			
 			rx -= ex * distaceScale;
 			ry += ex * distaceScale;
@@ -63,7 +63,7 @@ public class PlotterIsometric_45deg extends Plotter {
 			
 			ry -= ez;
 			
-		} else if (viewpoint == EnumIsometricViewpoint.NORTHEAST) {
+		} else if (viewpoint == EnumIsometricViewpoint.NORTHWEST) {
 			
 			rx -= ex * distaceScale;
 			ry -= ex * distaceScale;
@@ -73,7 +73,7 @@ public class PlotterIsometric_45deg extends Plotter {
 			
 			ry -= ez;
 			
-		} else if (viewpoint == EnumIsometricViewpoint.NORTHWEST) {
+		} else if (viewpoint == EnumIsometricViewpoint.NORTHEAST) {
 			
 			rx += ex * distaceScale;
 			ry -= ex * distaceScale;
