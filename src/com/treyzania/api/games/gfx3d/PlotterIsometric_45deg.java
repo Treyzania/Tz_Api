@@ -4,17 +4,24 @@ import com.treyzania.api.games.Entity3D;
 
 public class PlotterIsometric_45deg extends Plotter {
 
-	public float scale;
+	public float distaceScale;
+	public EnumIsometricViewpoint viewpoint;
 	
-	public PlotterIsometric_45deg(float scale) {
+	public PlotterIsometric_45deg(EnumIsometricViewpoint viewpoint, float scale) {
 		
-		this.scale = scale;
+		this.viewpoint = viewpoint;
+		this.distaceScale = scale;
 		
 	}
 	
-	@SuppressWarnings("unused")
+	public PlotterIsometric_45deg(float scale) {
+		
+		this(EnumIsometricViewpoint.SOUTHWEST, scale);
+		
+	}
+	
 	@Override
-	public int[] plot(Entity3D e3d, int Xoff, int Yoff) { // Currently assumes viewpoint as "EnumIsometricViewpoint.SOUTHWEST"
+	public int[] plot(Entity3D e3d, int Xoff, int Yoff) {
 		
 		int[] points = new int[2];
 		
@@ -24,13 +31,65 @@ public class PlotterIsometric_45deg extends Plotter {
 		int rx = 0;
 		int ry = 0;
 		
+		/*
+		 * Old testing code.
+		 * 
 		rx += ex * scale;
 		ry += ex * scale;
 		
-		rx += ey * scale;
+		rx -= ey * scale;
 		ry -= ey * scale;
 		
-		ry -= ex;
+		ry -= ez;
+		*/
+		
+		if (viewpoint == EnumIsometricViewpoint.SOUTHWEST) {
+			
+			rx += ex * distaceScale;
+			ry += ex * distaceScale;
+			
+			rx -= ey * distaceScale;
+			ry -= ey * distaceScale;
+			
+			ry -= ez;
+			
+		} else if (viewpoint == EnumIsometricViewpoint.SOUTHEAST) {
+			
+			rx -= ex * distaceScale;
+			ry += ex * distaceScale;
+			
+			rx += ey * distaceScale;
+			ry -= ey * distaceScale;
+			
+			ry -= ez;
+			
+		} else if (viewpoint == EnumIsometricViewpoint.NORTHEAST) {
+			
+			rx -= ex * distaceScale;
+			ry -= ex * distaceScale;
+			
+			rx += ey * distaceScale;
+			ry += ey * distaceScale;
+			
+			ry -= ez;
+			
+		} else if (viewpoint == EnumIsometricViewpoint.NORTHWEST) {
+			
+			rx += ex * distaceScale;
+			ry -= ex * distaceScale;
+			
+			rx -= ey * distaceScale;
+			ry += ey * distaceScale;
+			
+			ry -= ez;
+			
+		}
+		
+		rx += Xoff;
+		ry += Yoff;
+		
+		points[0] = rx;
+		points[1] = ry;
 		
 		return points;
 		
