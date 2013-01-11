@@ -3,7 +3,7 @@ package com.treyzania.api.util;
 import java.util.ArrayList;
 import java.util.EventListener;
 
-import com.treyzania.api.games.GPanel2D;
+import com.treyzania.api.games.games2d.GPanel2D;
 
 public class ListenerRegistry {
 

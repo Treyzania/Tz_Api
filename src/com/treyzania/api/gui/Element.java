@@ -2,7 +2,7 @@ package com.treyzania.api.gui;
 
 import java.awt.Graphics2D;
 
-import com.treyzania.api.games.gfx2d.old.Model;
+import com.treyzania.api.games.games2d.old.Model;
 
 public abstract class Element extends Model {
 

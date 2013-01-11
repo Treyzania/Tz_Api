@@ -1,6 +1,7 @@
 package com.treyzania.api.util;
 
-import com.treyzania.api.games.Environment2D;
+import com.treyzania.api.games.Item;
+import com.treyzania.api.games.games2d.Environment2D;
 import com.treyzania.api.gui.Theme;
 
 public class ResourceRegistry {
@@ -49,6 +50,20 @@ public class ResourceRegistry {
 	public static Environment2D getCurrentEnvironment() {
 		
 		return currentEnv;
+		
+	}
+	
+	/**
+	 * Registers an item in "Item.class".
+	 * 
+	 * @param item
+	 * @return
+	 */
+	public static boolean registerItem(Item item) {
+		
+		Item.items[item.itemId] = item;
+		
+		return false;
 		
 	}
 	
