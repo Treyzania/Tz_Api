@@ -2,17 +2,18 @@ package com.treyzania.api.games;
 
 public abstract class Entity {
 	
-	public String name = "";
+	public final long birthTime;
 	
-	// Constructors
-	public Entity() {}
-	
+	// Constructor
 	public Entity(String name) {
 		
-		this.name = name;
+		this.birthTime = System.currentTimeMillis();
 		
 	}
 	
+	/**
+	 * Updates this entity.  Do not override without knowing what you are doing.
+	 */
 	public void update() {
 		
 		this.ai();

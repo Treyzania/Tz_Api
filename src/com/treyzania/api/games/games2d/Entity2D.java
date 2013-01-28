@@ -11,10 +11,11 @@ public class Entity2D extends Entity {
 	
 	public Model model;
 	
-	public Entity2D(Model model) {
+	public Entity2D(String name, Model model) {
+		
+		super(name);
 		
 		this.model = model; 
-		
 		
 	}
 	

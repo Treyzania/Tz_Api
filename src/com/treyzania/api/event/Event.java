@@ -4,8 +4,9 @@ import com.treyzania.api.io.EntryCompound;
 
 public class Event {
 
-	private String name;
-	private EntryCompound data;
+	private final String name;
+	private final EntryCompound data;
+	private final long timestamp = System.currentTimeMillis();
 	
 	public Event(String name, EntryCompound data) {
 		
@@ -23,6 +24,12 @@ public class Event {
 	public String getName() {
 		
 		return name;
+		
+	}
+	
+	public long timestamp() {
+		
+		return timestamp;
 		
 	}
 	

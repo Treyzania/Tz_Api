@@ -8,7 +8,9 @@ public class EntityEnv3D extends Entity3D {
 	public double zVel = 0;
 	public double terminalVelocity;
 	
-	public EntityEnv3D(double terminalVelocity) {
+	public EntityEnv3D(String name, double terminalVelocity) {
+		
+		super(name);
 		
 		this.terminalVelocity = terminalVelocity;
 		

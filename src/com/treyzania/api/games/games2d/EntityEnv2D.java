@@ -8,9 +8,10 @@ public class EntityEnv2D extends Entity2D implements IPhysicsAccess2D {
 	public double terminalVel;
 	public boolean onGround, inWater;
 	
-	public EntityEnv2D(Model model) {
-		super(model);
-		// TODO Auto-generated constructor stub
+	public EntityEnv2D(String name, Model model) {
+		
+		super(name, model);
+		
 	}
 	
 	public void tryJump() {

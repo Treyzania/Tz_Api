@@ -4,9 +4,6 @@ import javax.swing.ImageIcon;
 
 public class Item {
 
-	public static Item[] items = new Item[65536];
-	public static Item errorHandlerItem = new Item(0, new ImageIcon());
-	
 	public final int itemId;
 	public final ImageIcon icon;
 	

@@ -6,10 +6,9 @@ public class Entity3D extends Entity {
 	
 	public double x, y, z;
 	
-	public Entity3D() {
+	public Entity3D(String name) {
 		
-		
-		
+		super(name);
 		
 	}
 	

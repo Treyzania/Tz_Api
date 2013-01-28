@@ -2,7 +2,6 @@ package com.treyzania.api.games.games2d;
 
 import java.awt.Graphics2D;
 
-
 public abstract class Model {
 
 	public final Entity2D boundEntity;

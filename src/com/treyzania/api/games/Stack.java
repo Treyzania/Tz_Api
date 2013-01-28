@@ -18,7 +18,7 @@ public class Stack {
 	
 	public ImageIcon getIcon() {
 		
-		return Item.items[id].getIcon(this);
+		return ItemRegistry.getItem(this.id).icon;
 		
 	}
 	

@@ -1,7 +1,7 @@
 package com.treyzania.api.games;
 
 /**
- * This class is a placeholder and under heavy development.
+ * This class is a placeholder and scheduled for heavy development.
  * 
  * @author Treyzania
  *
