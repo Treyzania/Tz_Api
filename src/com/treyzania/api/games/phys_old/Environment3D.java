@@ -1,6 +1,6 @@
-package com.treyzania.api.games.games3d;
+package com.treyzania.api.games.phys_old;
 
-
+/*
 public class Environment3D {
 
 	public double windResistance;
@@ -62,4 +62,4 @@ public class Environment3D {
 	}
 	
 	
-}
+}*/

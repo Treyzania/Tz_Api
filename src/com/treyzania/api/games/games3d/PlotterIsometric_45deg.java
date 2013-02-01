@@ -24,9 +24,9 @@ public class PlotterIsometric_45deg extends Plotter {
 		
 		int[] points = new int[2];
 		
-		int ex = (int) e3d.x;
-		int ey = (int) e3d.y;
-		int ez = (int) e3d.z;
+		int ex = (int) e3d.location.x;
+		int ey = (int) e3d.location.y;
+		int ez = (int) e3d.location.z;
 		int rx = 0;
 		int ry = 0;
 		

@@ -1,4 +1,4 @@
-package com.treyzania.api.games.games3d;
+package com.treyzania.api.games.phys_old;
 
 public class Vec3D {
 

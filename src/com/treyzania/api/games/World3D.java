@@ -14,9 +14,9 @@ public class World3D extends World {
 	
 	public void addEntityAt(Entity3D entity, double x, double y, double z) {
 		
-		entity.x = x;
-		entity.y = y;
-		entity.z = z;
+		entity.location.x = x;
+		entity.location.y = y;
+		entity.location.z = z;
 		
 		entities.add(entity);
 		

@@ -1,5 +1,7 @@
 package com.treyzania.api.games;
 
+import com.treyzania.api.games.phys.IEntityListener;
+
 public abstract class Entity {
 	
 	public final long birthTime;
@@ -24,5 +26,13 @@ public abstract class Entity {
 	 * For any AI calls.
 	 */
 	public void ai() { }
+	
+	/**
+	 * Registers a listener.  Useful for makeshift warp drives. *Wink*.
+	 * 
+	 * @param iel the listener.
+	 * @return success.
+	 */
+	public abstract boolean registerListener(IEntityListener iel);
 	
 }

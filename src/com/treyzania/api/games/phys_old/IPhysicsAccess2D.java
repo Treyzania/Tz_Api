@@ -1,4 +1,4 @@
-package com.treyzania.api.games.games2d;
+package com.treyzania.api.games.phys_old;
 
 public interface IPhysicsAccess2D {
 

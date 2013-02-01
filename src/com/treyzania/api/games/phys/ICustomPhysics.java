@@ -1,4 +1,4 @@
-package com.treyzania.api.games;
+package com.treyzania.api.games.phys;
 
 public interface ICustomPhysics {
 

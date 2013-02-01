@@ -1,22 +1,31 @@
 package com.treyzania.api.games.games3d;
 
+import java.util.ArrayList;
+
 import com.treyzania.api.games.Entity;
+import com.treyzania.api.games.phys.EntityListener3D;
+import com.treyzania.api.games.phys.IEntityListener;
+import com.treyzania.api.games.phys.Location3D;
 
 public class Entity3D extends Entity {
 	
-	public double x, y, z;
+	public ArrayList<EntityListener3D> listeners;
+	
+	public Location3D location;
 	
 	public Entity3D(String name) {
 		
 		super(name);
 		
 	}
-	
-	public void updatePos() {
-		
-		
+
+	@Override
+	public boolean registerListener(IEntityListener iel) {
+		return listeners.add((EntityListener3D) iel);
 	}
 	
-	
+	public double getX() { return location.x; }
+	public double getY() { return location.y; }
+	public double getZ() { return location.z; }
 	
 }

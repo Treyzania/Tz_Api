@@ -1,6 +1,6 @@
 package com.treyzania.api.util;
 
-import com.treyzania.api.games.games2d.Environment2D;
+import com.treyzania.api.games.phys_old.Environment2D;
 import com.treyzania.api.gui.Theme;
 
 public class ResourceRegistry {
