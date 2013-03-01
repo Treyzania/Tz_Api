@@ -30,18 +30,6 @@ public class PlotterIsometric_45deg extends Plotter {
 		int rx = 0;
 		int ry = 0;
 		
-		/*
-		 * Old testing code.
-		 * 
-		rx += ex * scale;
-		ry += ex * scale;
-		
-		rx -= ey * scale;
-		ry -= ey * scale;
-		
-		ry -= ez;
-		*/
-		
 		if (viewpoint == EnumIsometricViewpoint.SOUTHEAST) {
 			
 			rx += ex * distaceScale;

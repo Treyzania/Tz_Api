@@ -15,7 +15,7 @@ public class Dev {
 		//tdf.read();
 		
 		EntryCompound ec = new EntryCompound("one");
-		ec.addEntry(new EntryInt("numb", 5));
+		ec.addEntry(new EntryInteger("numb", 5));
 		
 		tdf.addEntry(ec);
 		

@@ -5,6 +5,7 @@ import javax.swing.ImageIcon;
 public class Item {
 
 	public final int itemId;
+	public int maxStack;
 	public final ImageIcon icon;
 	
 	public Item(int id, ImageIcon icon) {
