@@ -5,13 +5,16 @@ public class EntryShort extends DataEntry {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 4742210915177412580L;
-
+	private static final long serialVersionUID = 2330180123966054647L;
 	public short value;
 	
-	public EntryShort(String name, short value) {
+	public EntryShort(short value) {
+		this(value, null);
+	}
+	
+	public EntryShort(short value, EntryCompound parent) {
 		
-		super(name);
+		super(parent);
 		
 		this.value = value;
 		

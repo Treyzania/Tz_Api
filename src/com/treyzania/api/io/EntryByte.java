@@ -5,13 +5,16 @@ public class EntryByte extends DataEntry {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -4722685329077150872L;
-
+	private static final long serialVersionUID = -5134032906758702970L;
 	public byte value;
 	
-	public EntryByte(String name, byte value) {
+	public EntryByte(byte value) {
+		this(value, null);
+	}
+	
+	public EntryByte(byte value, EntryCompound parent) {
 		
-		super(name);
+		super(parent);
 		
 		this.value = value;
 		

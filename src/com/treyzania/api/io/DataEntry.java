@@ -1,16 +1,18 @@
 package com.treyzania.api.io;
 
 public abstract class DataEntry extends Entry {
-
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 917001827264843540L;
+	private static final long serialVersionUID = 4089385277675547902L;
 
-	public DataEntry(String name) {
-		
-		super(name);
-		
+	public DataEntry() {
+		this(null);
+	}
+	
+	public DataEntry(EntryCompound parent) {
+		super(parent);
 	}
 
 	public abstract String getExtension();
@@ -18,7 +20,7 @@ public abstract class DataEntry extends Entry {
 	@Override
 	public String getFilename() {
 		
-		return this.name + getExtension();
+		return super.getFilename() + this.getExtension();
 		
 	}
 	

@@ -5,13 +5,16 @@ public class EntryFloat extends DataEntry {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -4161600820857960960L;
-
+	private static final long serialVersionUID = 2870758763409909989L;
 	public float value;
 	
-	public EntryFloat(String name, float value) {
+	public EntryFloat(float value) {
+		this(value, null);
+	}
+	
+	public EntryFloat(float value, EntryCompound parent) {
 		
-		super(name);
+		super(parent);
 		
 		this.value = value;
 		

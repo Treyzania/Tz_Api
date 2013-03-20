@@ -1,77 +1,230 @@
 package com.treyzania.api.io;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -7502677689202547100L;
+	private static final long serialVersionUID = -7583127222094927379L;
+	HashMap<String, Entry> entries;
 	
-	public ArrayList<Entry> entries;
+	public EntryCompound() {
+		this(null);
+	}
 	
-	public EntryCompound(String name) {
+	public EntryCompound(EntryCompound parent) {
 		
-		super(name);
+		super(parent);
 		
-		this.entries = new ArrayList<Entry>();
+		this.entries = new HashMap<String, Entry>();
 		
 	}
 	
-	public boolean addEntry(Entry entry) {
+	/* Beginning of entry-setters */
+	
+	/**
+	 * Adds an entry compound with the name specified.  There is no need to parentalize the compound.
+	 * 
+	 * @param name
+	 * @param ec
+	 */
+	public void setCompound(String name, EntryCompound ec) {
 		
-		boolean bad = false;
-		
-		if (getEntry(entry.name) != null) { // Check if the filename already exists 
-			bad = true;
-		} else {
-			entries.add(entry);
-		}
-		
-		return bad;
+		ec.parent = this;
+		this.internalEntrySetter(name, ec);
 		
 	}
 	
-	public Entry getEntry(int i) {
+	/**
+	 * Makes a new entry compound, then returns it.
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public EntryCompound setCompound(String name) {
 		
-		return entries.get(i);
+		EntryCompound ec = new EntryCompound(this);
+		this.internalEntrySetter(name, ec);
+		return ec;
 		
 	}
 	
+	/**
+	 * Makes a new boolean entry.
+	 * 
+	 * @param name
+	 * @param value
+	 */
+	public void setBoolean(String name, boolean value) {
+		
+		this.internalEntrySetter(name, new EntryBoolean(value, this));
+		
+	}
+	
+	/**
+	 * Makes a new byte entry.
+	 * 
+	 * @param name
+	 * @param value
+	 */
+	public void setByte(String name, byte value) {
+		
+		this.internalEntrySetter(name, new EntryByte(value, this));
+		
+	}
+	
+	/**
+	 * Makes a new double entry.
+	 * 
+	 * @param name
+	 * @param value
+	 */
+	public void setDouble(String name, double value) {
+		
+		this.internalEntrySetter(name, new EntryDouble(value, this));
+		
+	}
+	
+	/**
+	 * Makes a new float entry.
+	 * 
+	 * @param name
+	 * @param value
+	 */
+	public void setFloat(String name, float value) {
+		
+		this.internalEntrySetter(name, new EntryFloat(value, this));
+		
+	}
+	
+	/**
+	 * Makes a new integer entry.
+	 * 
+	 * @param name
+	 * @param value
+	 */
+	public void setInteger(String name, int value) {
+		
+		this.internalEntrySetter(name, new EntryInteger(value, this));
+		
+	}
+	
+	/**
+	 * Makes a new long entry.
+	 * 
+	 * @param name
+	 * @param value
+	 */
+	public void setLong(String name, long value) {
+		
+		this.internalEntrySetter(name, new EntryLong(value, this));
+		
+	}
+	
+	/**
+	 * Makes a new object entry.
+	 * 
+	 * @param name
+	 * @param value
+	 */
+	public void setObjet(String name, Object value) {
+		
+		this.internalEntrySetter(name, new EntryObject(value, this));
+		
+	}
+	
+	/**
+	 * Makes a new short entry.
+	 * 
+	 * @param name
+	 * @param value
+	 */
+	public void setShort(String name, short value) {
+		
+		this.internalEntrySetter(name, new EntryShort(value, this));
+		
+	}
+	
+	/**
+	 * Makes a new string entry.
+	 * 
+	 * @param name
+	 * @param value
+	 */
+	public void setString(String name, String value) {
+		
+		this.internalEntrySetter(name, new EntryString(value, this));
+		
+	}
+	
+	/**
+	 * Generic entry-setter for use with custom values.  There is no need to parentalize the entry.
+	 * 
+	 * @param name
+	 * @param entry
+	 */
+	public void setGenericEntry(String name, Entry entry) {
+		
+		entry.parent = this;
+		this.internalEntrySetter(name, entry);
+		
+	}
+	
+	// The raw entry setter.
+	/**
+	 * Internal entry setter.  Don't even _think_ about calling it.
+	 * 
+	 * @param name
+	 * @param entry
+	 */
+	private void internalEntrySetter(String name, Entry entry) {
+		
+		entries.put(name, entry);
+		
+	}
+	
+	/* End of entry-setters */
+	
+	/**
+	 * Gets the value of an entry.
+	 * 
+	 * @param name
+	 * @return
+	 */
 	public Entry getEntry(String name) {
 		
-		Entry e = null;
+		return entries.get(name);
 		
-		for (Entry entry : entries ) {
+	}
+	
+	/**
+	 * Gets all of the compounds in this compound.
+	 * 
+	 * @return
+	 */
+	public EntryCompound[] getCompounds() {
+		
+		ArrayList<EntryCompound> compounds = new ArrayList<EntryCompound>();
+		
+		for (int i = 0; i < entries.size(); i++) {
 			
-			if (entry != null) {
-				
-				if (entry.getFilename() == name) {
-					
-					e = entry;
-					
-				}
-				
+			Entry entry = entries.get(i);
+			if (entry instanceof EntryCompound) {
+				compounds.add((EntryCompound) entry);
 			}
 			
 		}
 		
-		return e;
+		return (EntryCompound[]) compounds.toArray();
 		
 	}
 	
-	public String[] getEntryList_Strings() {
+	public Entry[] getAllEntries() {
 		
-		ArrayList<String> names = new ArrayList<String>();
-		
-		for (int i = 0; i < entries.size(); i++) {
-			
-			names.add(entries.get(i).getFilename());
-			
-		}
-		
-		return ( (String[]) names.toArray() );
+		return (Entry[]) entries.values().toArray();
 		
 	}
 	

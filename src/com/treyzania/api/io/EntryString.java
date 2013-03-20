@@ -5,13 +5,16 @@ public class EntryString extends DataEntry {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -5473156936195530569L;
-	
+	private static final long serialVersionUID = 5722684474701125600L;
 	public String value = "";
 	
-	public EntryString(String name, String value) {
+	public EntryString(String value) {
+		this(value, null);
+	}
+	
+	public EntryString(String value, EntryCompound parent) {
 		
-		super(name);
+		super(parent);
 		
 		this.value = value;
 		

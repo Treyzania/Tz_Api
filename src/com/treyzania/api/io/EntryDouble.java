@@ -5,13 +5,16 @@ public class EntryDouble extends DataEntry {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -368446041097464753L;
-
+	private static final long serialVersionUID = 2703936849236417400L;
 	public double value;
 	
-	public EntryDouble(String name, double value) {
+	public EntryDouble(double value) {
+		this(value, null);
+	}
+	
+	public EntryDouble(double value, EntryCompound parent) {
 		
-		super(name);
+		super(parent);
 		
 		this.value = value;
 		

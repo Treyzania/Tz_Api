@@ -1,17 +1,20 @@
 package com.treyzania.api.io;
 
 public class EntryBoolean extends DataEntry {
-
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -1964945146904489189L;
-	
+	private static final long serialVersionUID = -5826922488514035547L;
 	public boolean value;
 
-	public EntryBoolean(String name, boolean value) {
+	public EntryBoolean(boolean value) {
+		this(value, null);
+	}
+	
+	public EntryBoolean(boolean value, EntryCompound parent) {
 		
-		super(name);
+		super(parent);
 		
 		this.value = value;
 		

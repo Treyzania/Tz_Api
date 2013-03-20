@@ -14,12 +14,7 @@ public class Dev {
 		tdf.flush();
 		//tdf.read();
 		
-		EntryCompound ec = new EntryCompound("one");
-		ec.addEntry(new EntryInteger("numb", 5));
-		
-		tdf.addEntry(ec);
-		
-		System.out.println(tdf.getEntryFromPath(new String[] {"one", "numb.int"}));
+		System.out.println(tdf.getRD().getEntry("q/w/e/r/t/y/h.int"));
 		
 	}
 	
