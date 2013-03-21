@@ -2,7 +2,7 @@ package com.treyzania.api.games.phys_old;
 
 public class Vec3D {
 
-	// TODO Add code for interpolation/extrapolation of points & lines.
+	// 
 	float x, y, z;
 	
 	public Vec3D(float x, float y, float z) {

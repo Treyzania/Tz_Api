@@ -33,8 +33,13 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 	 */
 	public void setCompound(String name, EntryCompound ec) {
 		
+		if (ec == this) { // We don't want any compound-ception!
+			System.err.println("wtf?");
+			return;
+		}
+		
 		ec.parent = this;
-		this.internalEntrySetter(name, ec);
+		this.internalEntrySet(name, ec);
 		
 	}
 	
@@ -47,7 +52,7 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 	public EntryCompound setCompound(String name) {
 		
 		EntryCompound ec = new EntryCompound(this);
-		this.internalEntrySetter(name, ec);
+		this.internalEntrySet(name, ec);
 		return ec;
 		
 	}
@@ -60,7 +65,7 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 	 */
 	public void setBoolean(String name, boolean value) {
 		
-		this.internalEntrySetter(name, new EntryBoolean(value, this));
+		this.internalEntrySet(name, new EntryBoolean(value, this));
 		
 	}
 	
@@ -72,7 +77,7 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 	 */
 	public void setByte(String name, byte value) {
 		
-		this.internalEntrySetter(name, new EntryByte(value, this));
+		this.internalEntrySet(name, new EntryByte(value, this));
 		
 	}
 	
@@ -84,7 +89,7 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 	 */
 	public void setDouble(String name, double value) {
 		
-		this.internalEntrySetter(name, new EntryDouble(value, this));
+		this.internalEntrySet(name, new EntryDouble(value, this));
 		
 	}
 	
@@ -96,7 +101,7 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 	 */
 	public void setFloat(String name, float value) {
 		
-		this.internalEntrySetter(name, new EntryFloat(value, this));
+		this.internalEntrySet(name, new EntryFloat(value, this));
 		
 	}
 	
@@ -108,7 +113,7 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 	 */
 	public void setInteger(String name, int value) {
 		
-		this.internalEntrySetter(name, new EntryInteger(value, this));
+		this.internalEntrySet(name, new EntryInteger(value, this));
 		
 	}
 	
@@ -120,7 +125,7 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 	 */
 	public void setLong(String name, long value) {
 		
-		this.internalEntrySetter(name, new EntryLong(value, this));
+		this.internalEntrySet(name, new EntryLong(value, this));
 		
 	}
 	
@@ -132,7 +137,7 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 	 */
 	public void setObjet(String name, Object value) {
 		
-		this.internalEntrySetter(name, new EntryObject(value, this));
+		this.internalEntrySet(name, new EntryObject(value, this));
 		
 	}
 	
@@ -144,7 +149,7 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 	 */
 	public void setShort(String name, short value) {
 		
-		this.internalEntrySetter(name, new EntryShort(value, this));
+		this.internalEntrySet(name, new EntryShort(value, this));
 		
 	}
 	
@@ -156,7 +161,7 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 	 */
 	public void setString(String name, String value) {
 		
-		this.internalEntrySetter(name, new EntryString(value, this));
+		this.internalEntrySet(name, new EntryString(value, this));
 		
 	}
 	
@@ -169,7 +174,7 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 	public void setGenericEntry(String name, Entry entry) {
 		
 		entry.parent = this;
-		this.internalEntrySetter(name, entry);
+		this.internalEntrySet(name, entry);
 		
 	}
 	
@@ -180,8 +185,9 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 	 * @param name
 	 * @param entry
 	 */
-	private void internalEntrySetter(String name, Entry entry) {
+	private void internalEntrySet(String name, Entry entry) {
 		
+		// TODO Make handling for nested entries. (i.e. "/some/random/path/thing.str")
 		entries.put(name, entry);
 		
 	}
@@ -195,8 +201,18 @@ public class EntryCompound extends Entry implements ISubfiles, Cloneable {
 	 * @return
 	 */
 	public Entry getEntry(String name) {
-		
 		return entries.get(name);
+	}
+	
+	public EntryCompound getECompound(String name) {
+		
+		Entry theEntry = this.getEntry(name);
+		
+		if (theEntry instanceof EntryCompound) {
+			return (EntryCompound) theEntry;
+		} else {
+			return null;
+		}
 		
 	}
 	

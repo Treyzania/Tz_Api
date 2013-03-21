@@ -52,7 +52,7 @@ public class PlotterOverhead extends Plotter {
 			
 		}
 		
-		ry -= ez * 0.05F; // TODO Check for easyness.
+		ry -= ez * 0.05F; // TODO Check for properness.
 		
 		output[0] = (int) rx;
 		output[1] = (int) ry;

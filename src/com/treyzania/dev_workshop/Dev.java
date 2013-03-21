@@ -9,12 +9,21 @@ public class Dev {
 		
 		Tz_Api.initalize();
 		
-		TreeDataFile tdf = new TreeDataFile("data.tdf", false);
+		TreeDataFile tdf = new TreeDataFile("dev_output\\newData.tdf", false);
 		
 		tdf.flush();
-		//tdf.read();
 		
-		System.out.println(tdf.getRD().getEntry("q/w/e/r/t/y/h.int"));
+		EntryCompound lastEc = tdf.getRD();
+		lastEc = lastEc.setCompound("q");
+		lastEc = lastEc.setCompound("w");
+		lastEc = lastEc.setCompound("e");
+		lastEc = lastEc.setCompound("r");
+		lastEc = lastEc.setCompound("t");
+		lastEc = lastEc.setCompound("y");
+		lastEc.setInteger("h", 1);
+		
+		Entry foundEntry = tdf.getRD().getECompound("q").getECompound("w").getECompound("e").getECompound("r").getECompound("t").getECompound("y").getEntry("h");
+		System.out.println(foundEntry);
 		
 	}
 	
