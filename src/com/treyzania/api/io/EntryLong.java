@@ -22,7 +22,6 @@ public class EntryLong extends DataEntry {
 
 	@Override
 	public String getExtension() {
-		// TODO Auto-generated method stub
 		return ".lng";
 	}
 

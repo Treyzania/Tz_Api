@@ -2,11 +2,11 @@ package com.treyzania.api.games.games2d;
 
 import java.util.ArrayList;
 
-import com.treyzania.api.games.Entity;
-import com.treyzania.api.games.phys.IEntityListener;
-import com.treyzania.api.games.phys.IEntityListener2D;
-import com.treyzania.api.games.phys.Location2D;
-import com.treyzania.api.games.phys.Velocity2DStack;
+import com.treyzania.api.games.content.entity.Entity;
+import com.treyzania.api.games.physics.IEntityListener;
+import com.treyzania.api.games.physics.phys2d.IEntityListener2D;
+import com.treyzania.api.games.physics.phys2d.Location2D;
+import com.treyzania.api.games.physics.phys2d.Velocity2DStack;
 
 public class Entity2D extends Entity {
 

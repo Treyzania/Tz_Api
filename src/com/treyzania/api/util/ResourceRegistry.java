@@ -1,12 +1,13 @@
 package com.treyzania.api.util;
 
-import com.treyzania.api.games.phys_old.Environment2D;
+import java.util.logging.Logger;
+
 import com.treyzania.api.gui.Theme;
 
 public class ResourceRegistry {
 
 	private static Theme currentTheme;
-	private static Environment2D currentEnv;
+	public static Logger masterLogger;
 	
 	/**
 	 * Sets the current Theme.
@@ -27,28 +28,6 @@ public class ResourceRegistry {
 	public static Theme getCurrentTheme() {
 		
 		return currentTheme;
-		
-	}
-	
-	/**
-	 * Sets the current Environment.
-	 * 
-	 * @param env
-	 */
-	public static void setCurrentEnvironment(Environment2D env) {
-		
-		currentEnv = env;
-		
-	}
-	
-	/**
-	 * Gets the current Environment.
-	 * 
-	 * @return
-	 */
-	public static Environment2D getCurrentEnvironment() {
-		
-		return currentEnv;
 		
 	}
 	

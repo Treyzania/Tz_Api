@@ -3,7 +3,8 @@ package com.treyzania.api.games.games2d;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import com.treyzania.api.games.Tile;
+import com.treyzania.api.games.content.tile.Tile;
+import com.treyzania.api.games.content.world.World2D;
 
 public class Tile2D extends Tile {
 	

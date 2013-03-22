@@ -2,10 +2,10 @@ package com.treyzania.api.games.games3d;
 
 import java.util.ArrayList;
 
-import com.treyzania.api.games.Entity;
-import com.treyzania.api.games.phys.EntityListener3D;
-import com.treyzania.api.games.phys.IEntityListener;
-import com.treyzania.api.games.phys.Location3D;
+import com.treyzania.api.games.content.entity.Entity;
+import com.treyzania.api.games.physics.IEntityListener;
+import com.treyzania.api.games.physics.phys3d.EntityListener3D;
+import com.treyzania.api.games.physics.phys3d.Location3D;
 
 public class Entity3D extends Entity {
 	
