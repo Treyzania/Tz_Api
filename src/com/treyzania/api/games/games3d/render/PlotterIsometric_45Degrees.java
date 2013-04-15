@@ -1,12 +1,15 @@
 package com.treyzania.api.games.games3d.render;
 
-import com.treyzania.api.games.games3d.Entity3D;
-
+import com.treyzania.api.games.games2d.Point;
+import com.treyzania.api.games.games3d.Point3;
 
 public class PlotterIsometric_45Degrees extends Plotter {
 
 	public float distaceScale;
 	public EnumIsometricViewpoint viewpoint;
+	
+	public int xOff;
+	public int yOff;
 	
 	public PlotterIsometric_45Degrees(EnumIsometricViewpoint viewpoint, float scale) {
 		
@@ -21,66 +24,73 @@ public class PlotterIsometric_45Degrees extends Plotter {
 		
 	}
 	
+	public PlotterIsometric_45Degrees setOffX(int off) {
+		this.xOff = off;
+		return this;
+	}
+	
+	public PlotterIsometric_45Degrees settOffY(int off) {
+		this.yOff = off;
+		return this;
+	}
+	
 	@Override
-	public int[] plot(Entity3D e3d, int Xoff, int Yoff) {
+	public Point plot(Point3 p3) {
 		
-		int[] points = new int[2];
-		
-		int ex = (int) e3d.location.x;
-		int ey = (int) e3d.location.y;
-		int ez = (int) e3d.location.z;
+		int px = (int) p3.x;
+		int py = (int) p3.y;
+		int pz = (int) p3.z;
 		int rx = 0;
 		int ry = 0;
 		
 		if (viewpoint == EnumIsometricViewpoint.SOUTHEAST) {
 			
-			rx += ex * distaceScale;
-			ry += ex * distaceScale;
+			rx += px * distaceScale;
+			ry += px * distaceScale;
 			
-			rx -= ey * distaceScale;
-			ry -= ey * distaceScale;
+			rx -= py * distaceScale;
+			ry -= py * distaceScale;
 			
-			ry -= ez;
+			ry -= pz;
 			
 		} else if (viewpoint == EnumIsometricViewpoint.SOUTHWEST) {
 			
-			rx -= ex * distaceScale;
-			ry += ex * distaceScale;
+			rx -= px * distaceScale;
+			ry += px * distaceScale;
 			
-			rx += ey * distaceScale;
-			ry -= ey * distaceScale;
+			rx += py * distaceScale;
+			ry -= py * distaceScale;
 			
-			ry -= ez;
+			ry -= pz;
 			
 		} else if (viewpoint == EnumIsometricViewpoint.NORTHWEST) {
 			
-			rx -= ex * distaceScale;
-			ry -= ex * distaceScale;
+			rx -= px * distaceScale;
+			ry -= px * distaceScale;
 			
-			rx += ey * distaceScale;
-			ry += ey * distaceScale;
+			rx += py * distaceScale;
+			ry += py * distaceScale;
 			
-			ry -= ez;
+			ry -= pz;
 			
 		} else if (viewpoint == EnumIsometricViewpoint.NORTHEAST) {
 			
-			rx += ex * distaceScale;
-			ry -= ex * distaceScale;
+			rx += px * distaceScale;
+			ry -= px * distaceScale;
 			
-			rx -= ey * distaceScale;
-			ry += ey * distaceScale;
+			rx -= py * distaceScale;
+			ry += py * distaceScale;
 			
-			ry -= ez;
+			ry -= pz;
 			
 		}
 		
-		rx += Xoff;
-		ry += Yoff;
+		rx += this.xOff;
+		ry += this.yOff;
 		
-		points[0] = rx;
-		points[1] = ry;
+		Point point = new Point(rx, ry);
 		
-		return points;
+		return point;
 		
 	}
 

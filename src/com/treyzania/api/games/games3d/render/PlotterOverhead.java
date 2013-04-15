@@ -1,11 +1,15 @@
 package com.treyzania.api.games.games3d.render;
 
-import com.treyzania.api.games.games3d.Entity3D;
+import com.treyzania.api.games.games2d.Point;
+import com.treyzania.api.games.games3d.Point3;
 
 public class PlotterOverhead extends Plotter {
 
 	public EnumOverheadViewpoint viewpoint;
 	public float force;
+	
+	public int xOff;
+	public int yOff;
 	
 	public PlotterOverhead(EnumOverheadViewpoint viewpoint) {
 		
@@ -20,44 +24,54 @@ public class PlotterOverhead extends Plotter {
 		
 	}
 	
+	public PlotterOverhead setOffX(int off) {
+		this.xOff = off;
+		return this;
+	}
+	
+	public PlotterOverhead settOffY(int off) {
+		this.yOff = off;
+		return this;
+	}
+	
 	@Override
-	public int[] plot(Entity3D e3d, int Xoff, int Yoff) {
+	public Point plot(Point3 p3) {
 		
-		int[] output = new int[2];
-		
-		double ex = e3d.location.x;
-		double ey = e3d.location.y;
-		double ez = e3d.location.z;
+		double px = p3.x;
+		double py = p3.y;
+		double pz = p3.z;
 		
 		double rx = 0;
 		double ry = 0;
 		
 		if (viewpoint == EnumOverheadViewpoint.EAST) {
 			
-			rx = ey * -1;
-			ry = ex * -1;
+			rx = py * -1;
+			ry = px * -1;
 			
 		} else if (viewpoint == EnumOverheadViewpoint.NORTH) {
 			
-			rx = ex;
-			ry = ey * -1;
+			rx = px;
+			ry = py * -1;
 			
 		} else if (viewpoint == EnumOverheadViewpoint.WEST) {
 			
-			rx = ey;
-			ry = ex;
+			rx = py;
+			ry = px;
 			
 		} else if (viewpoint == EnumOverheadViewpoint.SOUTH) {
 			
-			rx = ex * -1;
-			ry = ey;
+			rx = px * -1;
+			ry = py;
 			
 		}
 		
-		ry -= ez * 0.05F; // TODO Check for properness.
+		ry -= pz * 0.05F; // TODO Check for properness.
 		
-		output[0] = (int) rx;
-		output[1] = (int) ry;
+		rx += this.xOff;
+		ry += this.yOff;
+		
+		Point output = new Point(rx, ry);
 		
 		return output;
 		

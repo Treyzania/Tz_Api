@@ -3,12 +3,33 @@ package com.treyzania.api.games.games3d;
 public class Vector3 {
 
 	public Vector3Pool myPool;
-	public double xOff, yOff, zOff;
-	public double pitch, roll, yaw; // TODO Decide whether I really need this.
+	public double pitch;
+	public double roll;
+	public double yaw;
 	
-	public Vector3() {
+	protected Vector3(double p, double r, double y) {
 		
-		// TODO Add code!
+		this.pitch = p;
+		this.roll = r;
+		this.yaw =  y;
+		
+	}
+	
+	protected Vector3(double p, double r) {
+		
+		this.pitch = p;
+		this.roll = r;
+		this.yaw = 0D;
+		
+	}
+	
+	public Point3 getPointAtLength(double length) {
+		
+		Point3 point = null;
+		
+		// TODO Add code for figuring out the return.
+		
+		return point;
 		
 	}
 	
