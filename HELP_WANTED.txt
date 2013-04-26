@@ -1,0 +1,14 @@
+We need help with...
+
+- 3-D geometry.  If you have any idea how to make this easier I'd love it.
+	- GET THOSE VECTORS WORKING! (Tait-Bryan angles)
+
+- 3-D physics.  Just write something good.
+
+- Change over the current coordinate system to use the standards.
+	- "x/y" is horizontal now, I need it to be "x/z".  The "y" should be up.
+	- You'll have to change a lot of rendering algorithms.
+
+- Give me some server cods to work with.
+
+- Anything else you can think of.
