@@ -8,9 +8,6 @@ public class PlotterIsometric_45Degrees extends Plotter {
 	public float distaceScale;
 	public EnumIsometricViewpoint viewpoint;
 	
-	public int xOff;
-	public int yOff;
-	
 	public PlotterIsometric_45Degrees(EnumIsometricViewpoint viewpoint, float scale) {
 		
 		this.viewpoint = viewpoint;
@@ -22,16 +19,6 @@ public class PlotterIsometric_45Degrees extends Plotter {
 		
 		this(EnumIsometricViewpoint.SOUTHWEST, scale);
 		
-	}
-	
-	public PlotterIsometric_45Degrees setOffX(int off) {
-		this.xOff = off;
-		return this;
-	}
-	
-	public PlotterIsometric_45Degrees settOffY(int off) {
-		this.yOff = off;
-		return this;
 	}
 	
 	@Override
@@ -48,45 +35,42 @@ public class PlotterIsometric_45Degrees extends Plotter {
 			rx += px * distaceScale;
 			ry += px * distaceScale;
 			
-			rx -= py * distaceScale;
-			ry -= py * distaceScale;
+			rx -= pz * distaceScale;
+			ry -= pz * distaceScale;
 			
-			ry -= pz;
+			ry -= py;
 			
 		} else if (viewpoint == EnumIsometricViewpoint.SOUTHWEST) {
 			
 			rx -= px * distaceScale;
 			ry += px * distaceScale;
 			
-			rx += py * distaceScale;
-			ry -= py * distaceScale;
+			rx += pz * distaceScale;
+			ry -= pz * distaceScale;
 			
-			ry -= pz;
+			ry -= py;
 			
 		} else if (viewpoint == EnumIsometricViewpoint.NORTHWEST) {
 			
 			rx -= px * distaceScale;
 			ry -= px * distaceScale;
 			
-			rx += py * distaceScale;
-			ry += py * distaceScale;
+			rx += pz * distaceScale;
+			ry += pz * distaceScale;
 			
-			ry -= pz;
+			ry -= py;
 			
 		} else if (viewpoint == EnumIsometricViewpoint.NORTHEAST) {
 			
 			rx += px * distaceScale;
 			ry -= px * distaceScale;
 			
-			rx -= py * distaceScale;
-			ry += py * distaceScale;
+			rx -= pz * distaceScale;
+			ry += pz * distaceScale;
 			
-			ry -= pz;
+			ry -= py;
 			
 		}
-		
-		rx += this.xOff;
-		ry += this.yOff;
 		
 		Point point = new Point(rx, ry);
 		

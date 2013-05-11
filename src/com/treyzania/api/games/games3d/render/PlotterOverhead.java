@@ -8,9 +8,6 @@ public class PlotterOverhead extends Plotter {
 	public EnumOverheadViewpoint viewpoint;
 	public float force;
 	
-	public int xOff;
-	public int yOff;
-	
 	public PlotterOverhead(EnumOverheadViewpoint viewpoint) {
 		
 		this.viewpoint = viewpoint;
@@ -22,16 +19,6 @@ public class PlotterOverhead extends Plotter {
 		
 		this.force = factor;
 		
-	}
-	
-	public PlotterOverhead setOffX(int off) {
-		this.xOff = off;
-		return this;
-	}
-	
-	public PlotterOverhead settOffY(int off) {
-		this.yOff = off;
-		return this;
 	}
 	
 	@Override
@@ -46,30 +33,27 @@ public class PlotterOverhead extends Plotter {
 		
 		if (viewpoint == EnumOverheadViewpoint.EAST) {
 			
-			rx = py * -1;
+			rx = pz * -1;
 			ry = px * -1;
 			
 		} else if (viewpoint == EnumOverheadViewpoint.NORTH) {
 			
 			rx = px;
-			ry = py * -1;
+			ry = pz * -1;
 			
 		} else if (viewpoint == EnumOverheadViewpoint.WEST) {
 			
-			rx = py;
+			rx = pz;
 			ry = px;
 			
 		} else if (viewpoint == EnumOverheadViewpoint.SOUTH) {
 			
 			rx = px * -1;
-			ry = py;
+			ry = pz;
 			
 		}
 		
-		ry -= pz * 0.05F; // TODO Check for properness.
-		
-		rx += this.xOff;
-		ry += this.yOff;
+		ry -= py * 0.05F; // TODO Check for properness.
 		
 		Point output = new Point(rx, ry);
 		
