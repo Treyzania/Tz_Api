@@ -5,17 +5,17 @@ import com.treyzania.api.games.games3d.Point3;
 import com.treyzania.api.games.games3d.Vector3;
 
 /**
- * A differet but similar plotter to the "A" version of this.
+ * A different but similar plotter to the "C" version of this.
  * 
  * @author Treyzania
  *
  */
-public class PlotterProjectionPerspective_B extends Plotter implements IFull3D {
+public class PlotterProjectionPerspective_Gamma extends Plotter implements IFull3D {
 
 	public Vector3 viewpoint;
 	public double fov;
 	
-	public PlotterProjectionPerspective_B(Vector3 vec3, double fov) {
+	public PlotterProjectionPerspective_Gamma(Vector3 vec3, double fov) {
 		
 		this.viewpoint = vec3;
 		this.fov = fov;

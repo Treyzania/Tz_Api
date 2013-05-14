@@ -10,12 +10,12 @@ import com.treyzania.api.games.games3d.Vector3;
  * @author Treyzania
  *
  */
-public class PlotterProjectionPerspective_A extends Plotter implements IFull3D {
+public class PlotterProjectionPerspective_Alpha extends Plotter implements IFull3D {
 
 	public Vector3 viewpoint;
 	public double fov;
 	
-	public PlotterProjectionPerspective_A(Vector3 vec3, double fov) {
+	public PlotterProjectionPerspective_Alpha(Vector3 vec3, double fov) {
 		
 		this.viewpoint = vec3;
 		this.fov = fov;
