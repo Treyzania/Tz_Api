@@ -1,4 +1,4 @@
-package com.treyzania.api.games.games3d.render;
+package com.treyzania.api.games.games3d.render.plotting;
 
 import com.treyzania.api.games.games2d.Point;
 import com.treyzania.api.games.games3d.Point3;
