@@ -1,8 +1,8 @@
 package com.treyzania.api.games.games3d.render.plotting;
 
+import com.treyzania.api.games.Point3;
+import com.treyzania.api.games.Vector3PRY;
 import com.treyzania.api.games.games2d.Point;
-import com.treyzania.api.games.games3d.Point3;
-import com.treyzania.api.games.games3d.Vector3;
 
 /**
  * A very special plotter that uses this algorithm: "http://en.wikipedia.org/wiki/3D_projection#Perspective_projection"
@@ -12,10 +12,10 @@ import com.treyzania.api.games.games3d.Vector3;
  */
 public class PlotterProjectionPerspective_Alpha extends Plotter implements IFull3D {
 
-	public Vector3 viewpoint;
+	public Vector3PRY viewpoint;
 	public double fov;
 	
-	public PlotterProjectionPerspective_Alpha(Vector3 vec3, double fov) {
+	public PlotterProjectionPerspective_Alpha(Vector3PRY vec3, double fov) {
 		
 		this.viewpoint = vec3;
 		this.fov = fov;
@@ -42,12 +42,12 @@ public class PlotterProjectionPerspective_Alpha extends Plotter implements IFull
 	}
 
 	@Override
-	public void setViewVector(Vector3 vec3) {
+	public void setViewVector(Vector3PRY vec3) {
 		this.viewpoint = vec3;
 	}
 
 	@Override
-	public Vector3 getViewVector() {
+	public Vector3PRY getViewVector() {
 		return this.viewpoint;
 	}
 

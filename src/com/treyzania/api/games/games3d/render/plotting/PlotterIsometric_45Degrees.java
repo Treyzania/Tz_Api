@@ -1,7 +1,7 @@
 package com.treyzania.api.games.games3d.render.plotting;
 
+import com.treyzania.api.games.Point3;
 import com.treyzania.api.games.games2d.Point;
-import com.treyzania.api.games.games3d.Point3;
 
 public class PlotterIsometric_45Degrees extends Plotter {
 

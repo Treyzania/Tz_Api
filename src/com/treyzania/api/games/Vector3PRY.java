@@ -1,13 +1,14 @@
-package com.treyzania.api.games.games3d;
+package com.treyzania.api.games;
 
-public class Vector3 {
+public class Vector3PRY extends Vector3 {
 
-	public Vector3Pool myPool;
 	public double pitch;
 	public double roll;
 	public double yaw;
 	
-	protected Vector3(double p, double r, double y) {
+	protected Vector3PRY(Vector3Pool pool, double p, double r, double y) {
+		
+		super(pool);
 		
 		this.pitch = p;
 		this.roll = r;
@@ -15,14 +16,11 @@ public class Vector3 {
 		
 	}
 	
-	protected Vector3(double p, double r) {
-		
-		this.pitch = p;
-		this.roll = r;
-		this.yaw = 0D;
-		
+	protected Vector3PRY(Vector3Pool pool, double p, double r) {
+		this(pool, p, r, 0);
 	}
 	
+	@Override
 	public Point3 getPointAtLength(double length) {
 		
 		Point3 point = null;

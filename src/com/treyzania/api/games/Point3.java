@@ -1,4 +1,4 @@
-package com.treyzania.api.games.games3d;
+package com.treyzania.api.games;
 
 import com.treyzania.api.games.games2d.Point;
 
