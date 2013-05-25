@@ -14,8 +14,6 @@ public class Tile {
 	public final int id;
 	public final Color tileColor;
 	
-	
-	
 	public Tile(int id, Color color) {
 		
 		this.id = id;
