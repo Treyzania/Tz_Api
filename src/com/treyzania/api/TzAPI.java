@@ -47,7 +47,7 @@ public class TzAPI {
 		
 		if (verRaw[0] == major && verRaw[1] == minor && verRaw[2] == revision) {
 			
-			
+			// TODO Version checking.
 			
 		}
 		
