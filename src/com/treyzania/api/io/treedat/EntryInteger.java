@@ -1,4 +1,4 @@
-package com.treyzania.api.io;
+package com.treyzania.api.io.treedat;
 
 public class EntryInteger extends DataEntry {
 

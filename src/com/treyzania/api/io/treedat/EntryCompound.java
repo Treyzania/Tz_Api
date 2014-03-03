@@ -1,4 +1,4 @@
-package com.treyzania.api.io;
+package com.treyzania.api.io.treedat;
 
 import java.util.ArrayList;
 import java.util.HashMap;

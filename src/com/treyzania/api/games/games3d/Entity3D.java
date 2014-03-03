@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import com.treyzania.api.games.content.entity.Entity;
 import com.treyzania.api.games.physics.IEntityListener;
 import com.treyzania.api.games.physics.phys3d.EntityListener3D;
-import com.treyzania.api.games.physics.phys3d.Location3D;
+import com.treyzania.api.games.physics.phys3d.LocData3D;
 
 public class Entity3D extends Entity {
 	
 	public ArrayList<EntityListener3D> listeners;
 	
-	public Location3D location;
+	public LocData3D location;
 	
 	public Entity3D(String name) {
 		

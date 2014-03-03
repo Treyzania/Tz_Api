@@ -1,6 +1,6 @@
 package com.treyzania.api.event;
 
-import com.treyzania.api.io.EntryCompound;
+import com.treyzania.api.io.treedat.EntryCompound;
 
 public class Event {
 

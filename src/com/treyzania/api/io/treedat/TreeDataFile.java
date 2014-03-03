@@ -1,4 +1,4 @@
-package com.treyzania.api.io;
+package com.treyzania.api.io.treedat;
 
 import java.io.File;
 import java.io.FileInputStream;

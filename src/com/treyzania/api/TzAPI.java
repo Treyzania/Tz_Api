@@ -7,10 +7,16 @@ public class TzAPI {
 
 	public static void initalize() {
 		
+		System.out.println("Thank you/your program's developer(s) for using TzAPI");
+		System.out.println("TzAPI Starting!");
+		System.out.println("Initializing all TzAPI resources...");
+		
 		ResourceRegistry.setCurrentTheme(Theme.THEME_DEFAULT);
 		ResourceRegistry.masterLogger = null; // TODO Add a logger.
 		
 		// TODO Add more classes to initialize.
+		
+		System.out.println("TzAPI has finished loading!");
 		
 	}
 	

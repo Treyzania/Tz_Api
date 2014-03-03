@@ -2,7 +2,7 @@ package com.treyzania.api.util.varret;
 
 import java.util.HashMap;
 
-import com.treyzania.api.io.DataEntry;
+import com.treyzania.api.io.treedat.DataEntry;
 
 /**
  * Shirt for "RetrievableRegistry".

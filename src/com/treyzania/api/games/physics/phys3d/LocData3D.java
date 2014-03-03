@@ -1,6 +1,6 @@
 package com.treyzania.api.games.physics.phys3d;
 
-public class Location3D {
+public class LocData3D {
 
 	public Velocity3DStack velStack;
 	
@@ -8,13 +8,13 @@ public class Location3D {
 	public double y = 0;
 	public double z = 0;
 	
-	public Location3D() {
+	public LocData3D() {
 		
 		this.velStack = new Velocity3DStack();
 		
 	}
 	
-	public Location3D(double x, double y, double z) {
+	public LocData3D(double x, double y, double z) {
 		
 		this();
 		

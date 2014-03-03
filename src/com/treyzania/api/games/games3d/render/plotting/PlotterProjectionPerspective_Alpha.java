@@ -1,7 +1,6 @@
 package com.treyzania.api.games.games3d.render.plotting;
 
 import com.treyzania.api.games.Point3;
-import com.treyzania.api.games.Vector3;
 import com.treyzania.api.games.Vector3PRY;
 import com.treyzania.api.games.games2d.Point;
 
@@ -36,16 +35,19 @@ public class PlotterProjectionPerspective_Alpha extends Plotter implements IFull
 		 *  
 		 */
 		
-		// Initialize the initial values.
+		// Initialize the initial (resource) values.
+		Point3 l = this.viewpoint.myPool.location;
+		
+		// Initialize the initial (plotting) values.
 		double aX = point3d.x;
 		double aY = point3d.y;
 		double aZ = point3d.z;
-		double cX = this.viewpoint.myPool.location.x;
-		double cY = this.viewpoint.myPool.location.y;
-		double cZ = this.viewpoint.myPool.location.z;
-		double thetaX = 0;
-		double thetaY = 0;
-		double thetaZ = 0;
+		double cX = l.x;
+		double cY = l.y;
+		double cZ = l.z;
+		double thetaX = this.viewpoint.pitch;
+		double thetaY = this.viewpoint.roll;
+		double thetaZ = this.viewpoint.yaw;
 		double eX = 0;
 		double eY = 0;
 		double eZ = 0;
@@ -71,7 +73,7 @@ public class PlotterProjectionPerspective_Alpha extends Plotter implements IFull
 		// Return the values
 		return new Point(bX, bY);
 		
-		/* sWhew... */
+		/* Whew... */
 		
 	}
 
