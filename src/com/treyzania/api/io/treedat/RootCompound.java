@@ -2,15 +2,20 @@ package com.treyzania.api.io.treedat;
 
 import java.util.HashMap;
 
-public class RootDirectory extends EntryCompound implements IRoot {
+public class RootCompound extends EntryCompound implements IRoot {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2165245624318184460L;
 
-	public RootDirectory() {
+	public final long timestamp;
+	
+	public RootCompound() {
+		
 		super();
+		
+		this.timestamp = System.currentTimeMillis();
 	}
 	
 	/**
@@ -64,6 +69,11 @@ public class RootDirectory extends EntryCompound implements IRoot {
 	@Override
 	public boolean isInStructuredSystem() {
 		return true;
+	}
+
+	@Override
+	public long getTimestamp() {
+		return this.timestamp;
 	}
 
 }

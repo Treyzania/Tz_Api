@@ -46,7 +46,7 @@ public abstract class Entry extends Object implements Serializable {
 				
 				lastEc = ec;
 				ec = ec.getParent();
-				if (ec instanceof RootDirectory || ec.getParent() == null) done = true;
+				if (ec instanceof RootCompound || ec.getParent() == null) done = true;
 				
 				if (lastEc != null && lastEc == ec) { // Check to see if someone is a asshole.
 					System.err.println("wtf? your're an asshole!"); // Looks like they are an asshole...
@@ -104,7 +104,7 @@ public abstract class Entry extends Object implements Serializable {
 	 * @return
 	 */
 	public boolean isInStructuredSystem() {
-		return (this.getFirstAncestor() instanceof RootDirectory);
+		return (this.getFirstAncestor() instanceof RootCompound);
 	}
 	
 }

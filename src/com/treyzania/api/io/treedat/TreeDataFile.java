@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
 public class TreeDataFile implements Flushable {
 	
 	private File targetFile;
-	public RootDirectory rootDir;
+	public RootCompound rootDir;
 	
 	public TreeDataFile(String filename, boolean read) {		
 		
@@ -28,11 +28,11 @@ public class TreeDataFile implements Flushable {
 	
 	public void resetRootDir() {
 		
-		this.rootDir = new RootDirectory();
+		this.rootDir = new RootCompound();
 		
 	}
 	
-	public RootDirectory getRD() {
+	public RootCompound getRD() {
 		return this.rootDir;
 	}
 	
@@ -52,7 +52,7 @@ public class TreeDataFile implements Flushable {
 		// Read data
 		try {
 			
-			this.rootDir = (RootDirectory) ois.readObject();
+			this.rootDir = (RootCompound) ois.readObject();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
