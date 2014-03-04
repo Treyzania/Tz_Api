@@ -1,4 +1,4 @@
-package com.treyzania.api.games.player.stats;
+package com.treyzania.api.games.player;
 
 public interface IPlayer {
 

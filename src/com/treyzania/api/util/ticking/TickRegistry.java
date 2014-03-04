@@ -14,7 +14,7 @@ public class TickRegistry implements Runnable {
 	protected TickRegistry() {
 		
 		this.ticks = new ArrayList<Tick>();
-		this.thread = new Thread("tz-api_TickRegistry");
+		this.thread = new Thread(this, "TzApi-TickRegistry");
 		this.ticking = true;
 		
 		thread.start();

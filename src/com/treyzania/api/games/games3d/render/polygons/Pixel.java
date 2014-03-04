@@ -1,8 +1,7 @@
 package com.treyzania.api.games.games3d.render.polygons;
 
 import java.awt.Color;
-
-import com.treyzania.api.games.games2d.Point;
+import java.awt.Point;
 
 public class Pixel {
 

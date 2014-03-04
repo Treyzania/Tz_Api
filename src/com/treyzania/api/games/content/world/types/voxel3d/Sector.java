@@ -1,16 +1,16 @@
 package com.treyzania.api.games.content.world.types.voxel3d;
 
-import com.treyzania.api.games.PointI;
+import java.awt.Point;
 
 public class Sector {
 
 	public final VoxelWorld3D myWorld;
-	public final PointI mySpot;
+	public final Point mySpot;
 	
 	public int[][][] tiles;
 	public TE3D[][][] tes;
 	
-	protected Sector(VoxelWorld3D world, PointI spot) {
+	protected Sector(VoxelWorld3D world, Point spot) {
 		
 		this.myWorld = world;
 		this.mySpot = spot;

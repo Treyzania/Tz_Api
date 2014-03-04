@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 import com.treyzania.api.games.games2d.Entity2D;
-import com.treyzania.api.games.games2d.Model;
+import com.treyzania.api.games.games2d.models.Model;
 
 public class ModelPlayer extends Model {
 

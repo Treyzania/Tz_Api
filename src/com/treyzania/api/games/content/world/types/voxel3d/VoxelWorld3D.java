@@ -1,8 +1,8 @@
 package com.treyzania.api.games.content.world.types.voxel3d;
 
+import java.awt.Point;
 import java.util.HashMap;
 
-import com.treyzania.api.games.PointI;
 import com.treyzania.api.games.content.world.World3D;
 import com.treyzania.api.games.games3d.Entity3D;
 
@@ -12,7 +12,7 @@ public class VoxelWorld3D extends World3D {
 	
 	public int worldHeight;
 	
-	public HashMap<PointI, Sector> sectors;
+	public HashMap<Point, Sector> sectors;
 	
 	public VoxelWorld3D(int height) {
 		
@@ -70,7 +70,7 @@ public class VoxelWorld3D extends World3D {
 	 * @param point
 	 * @return
 	 */
-	public Sector getSector(PointI point) {
+	public Sector getSector(Point point) {
 		return sectors.get(point);
 	}
 	
@@ -82,7 +82,7 @@ public class VoxelWorld3D extends World3D {
 	 * @return
 	 */
 	public Sector getSector(int x, int y) {
-		return this.getSector(new PointI(x, y));
+		return this.getSector(new Point(x, y));
 	}
 	
 	public Tile3D getTile(int x, int y, int z) {

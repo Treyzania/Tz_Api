@@ -1,10 +1,11 @@
 package com.treyzania.api.games.games3d.render.plotting;
 
-import com.treyzania.api.games.Point3;
-import com.treyzania.api.games.games2d.Point;
+import java.awt.geom.Point2D.Double;
+
+import com.treyzania.api.games.games3d.Point3D;
 
 public abstract class Plotter {
 
-	public abstract Point plot(Point3 point3d);
+	public abstract Double plot(Point3D point3d);
 	
 }

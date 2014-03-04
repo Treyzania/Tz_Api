@@ -1,8 +1,8 @@
 package com.treyzania.api.games.player.p2d;
 
 import com.treyzania.api.games.games2d.Entity2D;
-import com.treyzania.api.games.games2d.Model;
-import com.treyzania.api.games.player.stats.IPlayer;
+import com.treyzania.api.games.games2d.models.Model;
+import com.treyzania.api.games.player.IPlayer;
 
 public abstract class EntityPlayer2D extends Entity2D implements IPlayer {
 
@@ -21,10 +21,6 @@ public abstract class EntityPlayer2D extends Entity2D implements IPlayer {
 		
 		this.playerName = playerName;
 		
-	}
-	
-	public String getPlayerName() {
-		return playerName;
 	}
 
 }

@@ -1,8 +1,12 @@
 package com.treyzania.api.games.games3d.render.plotting;
 
-import com.treyzania.api.games.Point3;
-import com.treyzania.api.games.Vector3PRY;
-import com.treyzania.api.games.games2d.Point;
+import static java.lang.Math.*;
+
+import java.awt.geom.Point2D;
+import java.awt.geom.Point2D.Double;
+
+import com.treyzania.api.games.games3d.Point3D;
+import com.treyzania.api.games.games3d.Vector3PRY;
 
 /**
  * A very special plotter that uses this algorithm: "http://en.wikipedia.org/wiki/3D_projection#Perspective_projection"
@@ -10,7 +14,7 @@ import com.treyzania.api.games.games2d.Point;
  * @author Treyzania
  *
  */
-public class PlotterProjectionPerspective_Alpha extends Plotter implements IFull3D {
+public class PlotterProjectionPerspective_Alpha extends Plotter {
 
 	public Vector3PRY viewpoint;
 	public double fov;
@@ -23,7 +27,7 @@ public class PlotterProjectionPerspective_Alpha extends Plotter implements IFull
 	}
 	
 	@Override
-	public Point plot(Point3 point3d) {
+	public Double plot(Point3D point3d) {
 		
 		/*
 		 * Here is a TON of values,
@@ -36,7 +40,7 @@ public class PlotterProjectionPerspective_Alpha extends Plotter implements IFull
 		 */
 		
 		// Initialize the initial (resource) values.
-		Point3 l = this.viewpoint.myPool.location;
+		Point3D l = this.viewpoint.myPool.location;
 		
 		// Initialize the initial (plotting) values.
 		double aX = point3d.x;
@@ -62,39 +66,19 @@ public class PlotterProjectionPerspective_Alpha extends Plotter implements IFull
 		double bY;
 		
 		// First step in calculations.
-		dX = Math.cos(thetaY) * ( Math.sin(thetaZ) * ( aY - cY ) + Math.cos(thetaZ) * ( aX - cX ) ) - Math.sin(thetaY) * ( aZ - cZ );
-		dY = Math.sin(thetaX) * ( Math.cos(thetaY) * ( aZ - cZ ) + Math.sin(thetaY) * ( Math.sin(thetaZ) * ( aY - cY ) + Math.cos(thetaZ) * ( aX - cX ) ) ) + Math.cos(thetaX) * ( Math.cos(thetaZ) * ( aY - cY ) - Math.sin(thetaZ) * ( aX - cX ) );
-		dZ = Math.cos(thetaX) * ( Math.cos(thetaY) * ( aZ - cZ ) + Math.sin(thetaY) * ( Math.sin(thetaZ) * ( aY - cY ) + Math.cos(thetaZ) * ( aX - cX ) ) ) + Math.sin(thetaX) * ( Math.cos(thetaZ) * ( aY - cY ) - Math.sin(thetaZ) * ( aX - cX ) );
+		dX = cos(thetaY) * ( sin(thetaZ) * ( aY - cY ) + cos(thetaZ) * ( aX - cX ) ) - sin(thetaY) * ( aZ - cZ );
+		dY = sin(thetaX) * ( cos(thetaY) * ( aZ - cZ ) + sin(thetaY) * ( sin(thetaZ) * ( aY - cY ) + cos(thetaZ) * ( aX - cX ) ) ) + cos(thetaX) * ( cos(thetaZ) * ( aY - cY ) - sin(thetaZ) * ( aX - cX ) );
+		dZ = cos(thetaX) * ( cos(thetaY) * ( aZ - cZ ) + sin(thetaY) * ( sin(thetaZ) * ( aY - cY ) + cos(thetaZ) * ( aX - cX ) ) ) + sin(thetaX) * ( cos(thetaZ) * ( aY - cY ) - sin(thetaZ) * ( aX - cX ) );
 		
 		// Second step in calculations.
 		bX = ( ( eZ / dZ ) * dX ) - eX;
 		bY = ( ( eZ / dZ ) * dY ) - eY;
 		
 		// Return the values
-		return new Point(bX, bY);
+		return new Point2D.Double(bX, bY);
 		
 		/* Whew... */
 		
-	}
-
-	@Override
-	public void setFOV(double fovAngle) {
-		this.fov = fovAngle;
-	}
-
-	@Override
-	public double getFOV() {
-		return this.fov;
-	}
-
-	@Override
-	public void setViewVector(Vector3PRY vec3) {
-		this.viewpoint = vec3;
-	}
-
-	@Override
-	public Vector3PRY getViewVector() {
-		return this.viewpoint;
 	}
 
 }

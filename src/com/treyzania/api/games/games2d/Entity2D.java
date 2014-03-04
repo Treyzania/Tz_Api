@@ -3,6 +3,7 @@ package com.treyzania.api.games.games2d;
 import java.util.ArrayList;
 
 import com.treyzania.api.games.content.entity.Entity;
+import com.treyzania.api.games.games2d.models.Model;
 import com.treyzania.api.games.physics.IEntityListener;
 import com.treyzania.api.games.physics.phys2d.IEntityListener2D;
 import com.treyzania.api.games.physics.phys2d.Location2D;
@@ -16,9 +17,9 @@ public class Entity2D extends Entity {
 	
 	public Location2D location;
 	
-	public Entity2D(String name, Model model) {
+	public Entity2D(String entityType, Model model) {
 		
-		super(name);
+		super(entityType);
 		
 		this.model = model;
 		

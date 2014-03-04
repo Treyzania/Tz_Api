@@ -1,10 +1,10 @@
 package com.treyzania.api.games.games3d.render.plotting;
 
-import com.treyzania.api.games.Point3;
-import com.treyzania.api.games.Vector3;
-import com.treyzania.api.games.Vector3PRY;
-import com.treyzania.api.games.games2d.Point;
-import com.treyzania.api.util.Utilities;
+import java.awt.geom.Point2D;
+import java.awt.geom.Point2D.Double;
+
+import com.treyzania.api.games.games3d.Point3D;
+import com.treyzania.api.games.games3d.Vector3PRY;
 
 /**
  * A different but similar plotter to the "A" version of this.
@@ -12,8 +12,7 @@ import com.treyzania.api.util.Utilities;
  * @author Treyzania
  * 
  */
-public class PlotterProjectionPerspective_Beta extends Plotter implements
-		IFull3D {
+public class PlotterProjectionPerspective_Beta extends Plotter {
 
 	public Vector3PRY viewpoint;
 	public double fov;
@@ -27,7 +26,7 @@ public class PlotterProjectionPerspective_Beta extends Plotter implements
 
 	@SuppressWarnings("unused")
 	@Override
-	public Point plot(Point3 point3d) {
+	public Double plot(Point3D point3d) {
 		
 		// TODO Update this method to use values from file "notes/Beta algorithm design1.pdn".  This is hurting my brain.
 		
@@ -54,7 +53,7 @@ public class PlotterProjectionPerspective_Beta extends Plotter implements
 		
 		
 		// X
-		x_l = Utilities.distanceBetween(a_x, a_x, 0, 0);
+		x_l = Point2D.distance(a_x, a_y, 0, 0);
 		
 		
 		
@@ -68,28 +67,8 @@ public class PlotterProjectionPerspective_Beta extends Plotter implements
 		// TODO Step 3
 		
 		// NOW RETURN IT!
-		return new Point(0, 0); // All this will do is some very bad stuff.
+		return new Double(0, 0); // All this will do is some very bad stuff.
 		
-	}
-
-	@Override
-	public void setFOV(double fovAngle) {
-		this.fov = fovAngle;
-	}
-
-	@Override
-	public double getFOV() {
-		return this.fov;
-	}
-
-	@Override
-	public void setViewVector(Vector3PRY vec3) {
-		this.viewpoint = vec3;
-	}
-
-	@Override
-	public Vector3PRY getViewVector() {
-		return this.viewpoint;
 	}
 
 }

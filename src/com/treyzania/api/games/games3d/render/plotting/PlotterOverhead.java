@@ -1,7 +1,10 @@
 package com.treyzania.api.games.games3d.render.plotting;
 
-import com.treyzania.api.games.Point3;
-import com.treyzania.api.games.games2d.Point;
+
+import java.awt.geom.Point2D;
+import java.awt.geom.Point2D.Double;
+
+import com.treyzania.api.games.games3d.Point3D;
 
 public class PlotterOverhead extends Plotter {
 
@@ -22,7 +25,7 @@ public class PlotterOverhead extends Plotter {
 	}
 	
 	@Override
-	public Point plot(Point3 p3) {
+	public Double plot(Point3D p3) {
 		
 		double px = p3.x;
 		double py = p3.y;
@@ -55,7 +58,7 @@ public class PlotterOverhead extends Plotter {
 		
 		ry -= py * 0.05F; // TODO Check for properness.
 		
-		Point output = new Point(rx, ry);
+		Point2D.Double output = new Point2D.Double(rx, ry);
 		
 		return output;
 		
