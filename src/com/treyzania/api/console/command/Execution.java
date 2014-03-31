@@ -13,6 +13,14 @@ public class Execution {
 	
 	public ArrayList<String> args;
 	
+	public Execution() {
+		
+		this.args = new ArrayList<String>();
+		this.flags = new ArrayList<String>();
+		this.vars = new HashMap<String, String>();
+		
+	}
+	
 	public Execution(String context) {
 		
 		String[] parts = context.split(" ");

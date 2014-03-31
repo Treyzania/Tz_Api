@@ -15,6 +15,7 @@ public class CommandRegistry {
 	
 	public CommandRegistry(PrintStream output) {
 		
+		this.database = new ArrayList<Command>();
 		this.outputStream = output;
 		
 		// This is necessary.  Don't question it.
