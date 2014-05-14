@@ -1,9 +1,7 @@
 package com.treyzania.api.games.games3d.render.plotting;
 
-import java.awt.geom.Point2D;
-import java.awt.geom.Point2D.Double;
-
-import com.treyzania.api.games.games3d.Point3D;
+import com.treyzania.api.games.Point2F;
+import com.treyzania.api.games.Point3F;
 
 public class PlotterIsometric_45Degrees extends Plotter {
 
@@ -24,7 +22,7 @@ public class PlotterIsometric_45Degrees extends Plotter {
 	}
 	
 	@Override
-	public Double plot(Point3D p3) {
+	public Point2F plot(Point3F p3) {
 		
 		int px = (int) p3.x;
 		int py = (int) p3.y;
@@ -74,7 +72,7 @@ public class PlotterIsometric_45Degrees extends Plotter {
 			
 		}
 		
-		Point2D.Double point = new Point2D.Double(rx, ry);
+		Point2F point = new Point2F(rx, ry);
 		
 		return point;
 		
