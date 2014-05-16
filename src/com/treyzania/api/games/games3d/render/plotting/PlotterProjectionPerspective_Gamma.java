@@ -16,7 +16,10 @@ import static java.lang.Math.sqrt;
  * on and off...<br/><br/>
  * 
  * It is a plotter that works in virtually any configuration.  It may be better to use doubles
- * instead of floats and avoid all the casting, however this would use less memory.
+ * instead of floats and avoid all the casting, however this would use less memory, I think.<br/><br/>
+ * 
+ * Please give some suggestions if there is something you have an idea for.  I'm not super-
+ * proficient in Trig and Math.class.
  * 
  * @author Treyzania
  *
@@ -32,22 +35,35 @@ public class PlotterProjectionPerspective_Gamma extends Plotter implements IUses
 		
 		Vector3F vec = ivp.getViewpoint();
 		
+		// Setup
 		float factorX = 0F;
 		float factorY = 0F;
 		
-		if (!op.equals(vec.base)) {
+		if (!op.equals(vec.base)) { // Check if the point being plotted is at the same point as the vector's base.
 			
 			// Do the primary shifts and scalings.
-			factorX = (float) (cotan((op.z - vec.base.z) / (op.x - vec.base.x)) / vec.getYaw_rads()) / fovX;
-			factorY = (float) (cotan((op.y - vec.base.y) / (op.x - vec.base.x)) / vec.getPitch_rads()) / fovY;
+			float xDiff = op.x - vec.base.x;
+			if (xDiff != 0) {
+				
+				// Only if the point is not on the viewing vector's plane.  Is subtraction right here?
+				factorX = (float) (cotan((op.z - vec.base.z) / xDiff) - vec.getYaw_rads()) / fovX;
+				factorY = (float) (cotan((op.y - vec.base.y) / xDiff) - vec.getPitch_rads()) / fovY;
+				
+			} else { // In this case, figure out the angle, but differently.
+				
+				factorX = 0F; // It should return 0 anyways (, I think.)
+				factorY = (float) (Math.atan2(op.x - vec.base.x, op.y - vec.base.y) - vec.getPitch_rads()) / fovY; // I hope this is right.
+				
+			}
 			
-			/* Adjust for roll...  (No, the 'q' after "polar" isn't a typo.
-			 * 0.000001 is 0.001^2; in this form it is slightly easier to compute.)
+			/* Adjust for roll...  (No, the 'q' after "polar" isn't a typo, I don't know
+			 * why I have it, but it's important.  0.000001 is 0.001^2; in this form it
+			 * is slightly easier to compute.)
 			 */
 			float polarqR_sq = (float) (pow(factorX, 2) + pow(factorY, 2));
 			if (polarqR_sq >= 0.000001F && vec.roll != 0) { // In this case, it doesn't matter what the roll is measued in.
 				
-				float adjTheta = (float) (cotan(factorY / factorX) - (vec.getRoll_rads())); // Here, the measurement does matter.
+				float adjTheta = (float) (cotan(factorY / factorX) - vec.getRoll_rads()); // Here, the measurement does matter.
 				
 				double polarqR = sqrt(polarqR_sq); // Is this alright?
 				factorX = (float) (cos(adjTheta) * polarqR * -1);
@@ -55,7 +71,7 @@ public class PlotterProjectionPerspective_Gamma extends Plotter implements IUses
 				
 			}
 			
-		} // Otherwise, nothing happens...  It just renders in the center of the screen.
+		} // Otherwise, nothing happens...  It just renders in the center of the screen, by default.
 		
 		/* The +0.5F part is to make it easier/cleaner to scale up to a valid resolution like 1280x720,
 		 * you'd just multiply the coordinates by the numbers using Point2F:multiply(). 
@@ -94,6 +110,12 @@ public class PlotterProjectionPerspective_Gamma extends Plotter implements IUses
 		return this.fovY;
 	}
 	
+	/**
+	 * This may or may not be already implemented elsewhere...
+	 * 
+	 * @param value
+	 * @return
+	 */
 	private static double cotan(double value) {
 		return 1.0F / tan(value);
 	}

@@ -1,4 +1,4 @@
-package com.treyzania.api.games.content.world.types.voxel3d;
+package com.treyzania.api.games.content.world.type_voxel3d;
 
 import com.treyzania.api.games.content.tile.TileEntity;
 
