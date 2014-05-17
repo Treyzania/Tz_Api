@@ -4,16 +4,30 @@ import com.treyzania.api.games.Point2F;
 import com.treyzania.api.games.games3d.render.RenderingTexture;
 
 public class MappedQuad extends Quad {
-
-	public MappedQuad(Quad quad, GridGenerator gg) {
+	
+	public RenderingTexture texture;
+	public Point2F[][] points;
+	public QuadPixel[][] texPixels;
+	
+	public MappedQuad(Quad quad, RenderingTexture tex) {
 		
 		super(quad.cornerUpperLeft, quad.cornerUpperRight, quad.cornerLowerLeft, quad.cornerLowerRight);
 		
-		gg.map(this, null);
+		this.texture = tex;
+		
+		this.points = new Point2F[1][1];
+		this.texPixels = new QuadPixel[1][1];
 		
 	}
-
-	public RenderingTexture texture;
-	public Point2F[] points;
+	
+	public void gridify(GridGenerator gg) {
+		System.out.println(this + " is generating a point grid.");
+		this.points = gg.map(this, texture);
+	}
+	
+	public void texMapping(TextureMapper tm) {
+		System.out.println(this + " is mapping pixel colors from texture.");
+		this.texPixels = tm.mapTexture(this, texture);
+	}
 	
 }

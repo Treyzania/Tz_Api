@@ -1,11 +1,20 @@
 package com.treyzania.dev_workshop;
 
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-import com.treyzania.api.gui.ElementBarThin;
+import com.treyzania.api.games.Point2F;
+import com.treyzania.api.games.games3d.render.RenderingTexture;
+import com.treyzania.api.games.games3d.render.shapes.ROTexturedQuad;
+import com.treyzania.api.games.games3d.render.textures.GGAlpha;
+import com.treyzania.api.games.games3d.render.textures.MappedQuad;
+import com.treyzania.api.games.games3d.render.textures.Quad;
+import com.treyzania.api.games.games3d.render.textures.TMAlpha;
 
 public class TweakPanel extends JPanel {
 
@@ -14,22 +23,39 @@ public class TweakPanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private BufferedImage kittens;
+	
+	public TweakPanel() {
+		
+		String kittiesUrl = "http://placekitten.com/g/32/32";
+		
+		try {
+			kittens = ImageIO.read(new URL(kittiesUrl));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
 	public void paint(Graphics g) {		
 		
 		super.paint(g);
-		Graphics2D g2d = (Graphics2D) g;
 		
-		g2d.drawLine(0, 0, 10, 10);
+		RenderingTexture rt = new RenderingTexture(kittens);
 		
-		ElementBarThin ebt = new ElementBarThin(50, 50, Color.BLACK, Color.GREEN);
-		ebt.setMaximum(100);
-		ebt.setValue(100);
+		Point2F a = new Point2F(16, 16);
+		Point2F b = new Point2F(128 + 16, 16);
+		Point2F c = new Point2F(16, 128 + 16);
+		Point2F d = new Point2F(128 + 16, 128 + 16);
 		
-		ebt.setAttribs(1.0F, true, "Hi", Color.BLACK, true, true);
+		MappedQuad mq = new MappedQuad(new Quad(a, b, c, d), rt);
+		mq.gridify(new GGAlpha());
+		mq.texMapping(new TMAlpha());
 		
-		ebt.render(g2d);
+		ROTexturedQuad rotq = new ROTexturedQuad(mq);
 		
-		
+		rotq.render(g);
 		
 	}
 	

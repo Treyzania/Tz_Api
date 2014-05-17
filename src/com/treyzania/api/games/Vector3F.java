@@ -32,6 +32,27 @@ public class Vector3F {
 		this(from.base, from.pitch, from.roll, from.yaw);
 	}
 	
+	/**
+	 * Gets the point along the vector at the specified length.  Currently
+	 * doesn't work properly.
+	 * 
+	 * @param length
+	 * @return
+	 */
+	public Point3F pointAt(double length) {
+		
+		double nx, ny, nz;
+		
+		// TODO Finish this.
+		
+		nx = 0D;
+		ny = 0D;
+		nz = 0D;
+		
+		return new Point3F((float) (base.x + nx), (float) (base.y + ny), (float) (base.z + nz));
+		
+	}
+	
 	public float getPitch_rads() {
 		return (float) Math.toRadians(this.pitch);
 	}

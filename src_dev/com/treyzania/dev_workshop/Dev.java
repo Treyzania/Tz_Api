@@ -1,6 +1,10 @@
 package com.treyzania.dev_workshop;
 
-import com.treyzania.api.Deadlocker;
+import java.awt.Color;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import com.treyzania.api.TzAPI;
 
 public class Dev {
@@ -11,7 +15,21 @@ public class Dev {
 
 	public static void main(String[] args) {
 
-		Deadlocker.deadlock(1000);
+		JFrame frame = new JFrame();
+		
+		frame.setSize(1280, 720);
+		frame.setBackground(Color.BLACK);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		frame.setResizable(true);
+		frame.setFocusable(true);
+		
+		JPanel jp = new TweakPanel();
+		frame.add(jp);
+		
+		jp.setVisible(true);
+		frame.setVisible(true);
+		
 		
 		/*
 		 * TreeDataFile tdf = new TreeDataFile("dev_output\\newData.tdf",
