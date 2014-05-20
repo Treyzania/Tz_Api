@@ -16,4 +16,9 @@ public class Point2F {
 		return new Point2F(this.x * by.x, this.y * by.y);
 	}
 	
+	@Override
+	public String toString() {
+		return "(" + x + ", " + y + ")";
+	}
+	
 }

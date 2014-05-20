@@ -27,7 +27,10 @@ public class TweakPanel extends JPanel {
 	
 	public TweakPanel() {
 		
-		String kittiesUrl = "http://placekitten.com/g/32/32";
+		// http://www.laesieworks.com/digicom/digicom-images/noise1.gif
+		// http://placekitten.com/g/32/32
+		
+		String kittiesUrl = "http://i.imgur.com/B4Z6hGN.png";
 		
 		try {
 			kittens = ImageIO.read(new URL(kittiesUrl));
@@ -44,10 +47,10 @@ public class TweakPanel extends JPanel {
 		
 		RenderingTexture rt = new RenderingTexture(kittens);
 		
-		Point2F a = new Point2F(16, 16);
-		Point2F b = new Point2F(128 + 16, 16);
-		Point2F c = new Point2F(16, 128 + 16);
-		Point2F d = new Point2F(128 + 16, 128 + 16);
+		Point2F a = new Point2F(0, 0);
+		Point2F b = new Point2F(128, 0);
+		Point2F c = new Point2F(0, 128);
+		Point2F d = new Point2F(128, 128);
 		
 		MappedQuad mq = new MappedQuad(new Quad(a, b, c, d), rt);
 		mq.gridify(new GGAlpha());

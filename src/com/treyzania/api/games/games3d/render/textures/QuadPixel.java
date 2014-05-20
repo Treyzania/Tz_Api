@@ -9,5 +9,10 @@ public class QuadPixel {
 	public Point2F cornerUpperLeft, cornerUpperRight, cornerLowerLeft, cornerLowerRight;
 	
 	public Color color;
+
+	@Override
+	public String toString() {
+		return super.toString();
+	}
 	
 }

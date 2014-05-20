@@ -30,6 +30,18 @@ public class Dev {
 		jp.setVisible(true);
 		frame.setVisible(true);
 		
+		while (true) {
+			
+			jp.repaint();
+			
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
 		
 		/*
 		 * TreeDataFile tdf = new TreeDataFile("dev_output\\newData.tdf",

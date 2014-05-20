@@ -21,12 +21,10 @@ public class MappedQuad extends Quad {
 	}
 	
 	public void gridify(GridGenerator gg) {
-		System.out.println(this + " is generating a point grid.");
 		this.points = gg.map(this, texture);
 	}
 	
 	public void texMapping(TextureMapper tm) {
-		System.out.println(this + " is mapping pixel colors from texture.");
 		this.texPixels = tm.mapTexture(this, texture);
 	}
 	
