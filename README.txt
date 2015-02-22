@@ -2,8 +2,8 @@ When I started this project I grossly overvalued my programming skills.  Since t
 how horrendous this "API" was made.  I was trying to remake stuff that shouldn't be remade.  So I've stopped developing this
 to save myself a bit of worry, and hopefully nobody ever makes the mistake I've made by doing this.
 
-But, in fairness, the TreeData stuff (com.treyzania.api.io) is kindof useful on its own, but there are better options, sudh
-as JSON or even XML if you're *really* crazy.
+But, in fairness, the TreeData stuff (com.treyzania.api.io.treedat) is kindof useful on its own, but there are better options,
+such as JSON or even XML if you're *really* crazy.
 
 OLD: Description: An API for use in Java software.  Includes classed for making games in AWT easier.
 
